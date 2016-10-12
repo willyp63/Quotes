@@ -7,25 +7,83 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		465B4AFA1DAA1D6900E65AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465B4AF91DAA1D6900E65AF9 /* Main.storyboard */; };
+		465B4AFE1DAAA5CD00E65AF9 /* ContactListTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4AFD1DAAA5CD00E65AF9 /* ContactListTextField.m */; };
+		465B4B041DAAB18D00E65AF9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B031DAAB18D00E65AF9 /* RegisterViewController.m */; };
+		465B4B1C1DAAC7BE00E65AF9 /* A0SimpleKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B1B1DAAC7BE00E65AF9 /* A0SimpleKeychain.m */; };
+		465B4B201DAADBF200E65AF9 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B1F1DAADBF200E65AF9 /* ProfileViewController.m */; };
+		465B4B231DAADD5000E65AF9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B221DAADD5000E65AF9 /* LoginViewController.m */; };
+		465B4B271DAAFE0900E65AF9 /* AuthApiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B261DAAFE0900E65AF9 /* AuthApiUtil.m */; };
+		465B4B2A1DAB028200E65AF9 /* ApiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B291DAB028200E65AF9 /* ApiUtil.m */; };
+		465B4B301DAB232200E65AF9 /* QuoteItViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B2F1DAB232200E65AF9 /* QuoteItViewController.m */; };
+		465B4B341DAB27F700E65AF9 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B331DAB27F700E65AF9 /* FeedViewController.m */; };
+		465B4B381DAB29CF00E65AF9 /* MyTabsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B371DAB29CF00E65AF9 /* MyTabsController.m */; };
+		465B4B3D1DAB344B00E65AF9 /* AboveKeyBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B3C1DAB344B00E65AF9 /* AboveKeyBoardView.m */; };
+		465B4B411DAB3C8700E65AF9 /* QuoteItDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B401DAB3C8700E65AF9 /* QuoteItDetailViewController.m */; };
 		46658A5B1DA9E3260043F2DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A5A1DA9E3260043F2DC /* main.m */; };
 		46658A5E1DA9E3260043F2DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A5D1DA9E3260043F2DC /* AppDelegate.m */; };
-		46658A611DA9E3260043F2DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A601DA9E3260043F2DC /* ViewController.m */; };
-		46658A641DA9E3260043F2DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46658A621DA9E3260043F2DC /* Main.storyboard */; };
 		46658A661DA9E3260043F2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46658A651DA9E3260043F2DC /* Assets.xcassets */; };
 		46658A691DA9E3260043F2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */; };
+		46658A721DA9E7430043F2DC /* ContactBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A711DA9E7430043F2DC /* ContactBook.m */; };
+		46A4B3781DAC639F00109926 /* QTSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3771DAC639F00109926 /* QTSImageView.m */; };
+		46A4B37E1DACBA5300109926 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B37D1DACBA5300109926 /* Contact.m */; };
+		46A4B3831DACCE8700109926 /* SearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3821DACCE8700109926 /* SearchButton.m */; };
+		46A4B3891DADAD4100109926 /* QuotesApiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3881DADAD4100109926 /* QuotesApiUtil.m */; };
+		46AD348E1DAB6B0700D3EA61 /* QTSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD348D1DAB6B0700D3EA61 /* QTSButton.m */; };
+		46AD34911DAB6C7200D3EA61 /* QTSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD34901DAB6C7200D3EA61 /* QTSTextField.m */; };
+		46AD34941DAB7C6E00D3EA61 /* QuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD34931DAB7C6E00D3EA61 /* QuoteView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		465B4AF91DAA1D6900E65AF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		465B4AFC1DAAA5CD00E65AF9 /* ContactListTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTextField.h; sourceTree = "<group>"; };
+		465B4AFD1DAAA5CD00E65AF9 /* ContactListTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTextField.m; sourceTree = "<group>"; };
+		465B4B021DAAB18D00E65AF9 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		465B4B031DAAB18D00E65AF9 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		465B4B1A1DAAC7BE00E65AF9 /* A0SimpleKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = A0SimpleKeychain.h; sourceTree = "<group>"; };
+		465B4B1B1DAAC7BE00E65AF9 /* A0SimpleKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = A0SimpleKeychain.m; sourceTree = "<group>"; };
+		465B4B1E1DAADBF200E65AF9 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		465B4B1F1DAADBF200E65AF9 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		465B4B211DAADD5000E65AF9 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		465B4B221DAADD5000E65AF9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		465B4B251DAAFE0900E65AF9 /* AuthApiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthApiUtil.h; sourceTree = "<group>"; };
+		465B4B261DAAFE0900E65AF9 /* AuthApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthApiUtil.m; sourceTree = "<group>"; };
+		465B4B281DAB028200E65AF9 /* ApiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiUtil.h; sourceTree = "<group>"; };
+		465B4B291DAB028200E65AF9 /* ApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiUtil.m; sourceTree = "<group>"; };
+		465B4B2E1DAB232200E65AF9 /* QuoteItViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteItViewController.h; sourceTree = "<group>"; };
+		465B4B2F1DAB232200E65AF9 /* QuoteItViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteItViewController.m; sourceTree = "<group>"; };
+		465B4B321DAB27F700E65AF9 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		465B4B331DAB27F700E65AF9 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		465B4B361DAB29CF00E65AF9 /* MyTabsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTabsController.h; sourceTree = "<group>"; };
+		465B4B371DAB29CF00E65AF9 /* MyTabsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTabsController.m; sourceTree = "<group>"; };
+		465B4B3B1DAB344B00E65AF9 /* AboveKeyBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboveKeyBoardView.h; sourceTree = "<group>"; };
+		465B4B3C1DAB344B00E65AF9 /* AboveKeyBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboveKeyBoardView.m; sourceTree = "<group>"; };
+		465B4B3F1DAB3C8700E65AF9 /* QuoteItDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteItDetailViewController.h; sourceTree = "<group>"; };
+		465B4B401DAB3C8700E65AF9 /* QuoteItDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteItDetailViewController.m; sourceTree = "<group>"; };
 		46658A561DA9E3260043F2DC /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46658A5A1DA9E3260043F2DC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		46658A5C1DA9E3260043F2DC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		46658A5D1DA9E3260043F2DC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		46658A5F1DA9E3260043F2DC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		46658A601DA9E3260043F2DC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		46658A631DA9E3260043F2DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		46658A651DA9E3260043F2DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46658A681DA9E3260043F2DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		46658A6A1DA9E3260043F2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46658A701DA9E7430043F2DC /* ContactBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactBook.h; sourceTree = "<group>"; };
+		46658A711DA9E7430043F2DC /* ContactBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactBook.m; sourceTree = "<group>"; };
+		46A4B3761DAC639F00109926 /* QTSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSImageView.h; sourceTree = "<group>"; };
+		46A4B3771DAC639F00109926 /* QTSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTSImageView.m; sourceTree = "<group>"; };
+		46A4B37C1DACBA5300109926 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		46A4B37D1DACBA5300109926 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		46A4B37F1DACBADE00109926 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		46A4B3811DACCE8700109926 /* SearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchButton.h; sourceTree = "<group>"; };
+		46A4B3821DACCE8700109926 /* SearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchButton.m; sourceTree = "<group>"; };
+		46A4B3871DADAD4100109926 /* QuotesApiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesApiUtil.h; sourceTree = "<group>"; };
+		46A4B3881DADAD4100109926 /* QuotesApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesApiUtil.m; sourceTree = "<group>"; };
+		46AD348C1DAB6B0700D3EA61 /* QTSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSButton.h; sourceTree = "<group>"; };
+		46AD348D1DAB6B0700D3EA61 /* QTSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTSButton.m; sourceTree = "<group>"; };
+		46AD348F1DAB6C7200D3EA61 /* QTSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSTextField.h; sourceTree = "<group>"; };
+		46AD34901DAB6C7200D3EA61 /* QTSTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTSTextField.m; sourceTree = "<group>"; };
+		46AD34921DAB7C6E00D3EA61 /* QuoteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteView.h; sourceTree = "<group>"; };
+		46AD34931DAB7C6E00D3EA61 /* QuoteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +97,119 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465B4B001DAAB15400E65AF9 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B211DAADD5000E65AF9 /* LoginViewController.h */,
+				465B4B221DAADD5000E65AF9 /* LoginViewController.m */,
+			);
+			name = login;
+			sourceTree = "<group>";
+		};
+		465B4B011DAAB16F00E65AF9 /* register */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B021DAAB18D00E65AF9 /* RegisterViewController.h */,
+				465B4B031DAAB18D00E65AF9 /* RegisterViewController.m */,
+			);
+			name = register;
+			sourceTree = "<group>";
+		};
+		465B4B051DAAB6E300E65AF9 /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B1A1DAAC7BE00E65AF9 /* A0SimpleKeychain.h */,
+				465B4B1B1DAAC7BE00E65AF9 /* A0SimpleKeychain.m */,
+			);
+			name = vendor;
+			sourceTree = "<group>";
+		};
+		465B4B1D1DAADBD900E65AF9 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B1E1DAADBF200E65AF9 /* ProfileViewController.h */,
+				465B4B1F1DAADBF200E65AF9 /* ProfileViewController.m */,
+			);
+			name = profile;
+			sourceTree = "<group>";
+		};
+		465B4B241DAAFDEF00E65AF9 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B251DAAFE0900E65AF9 /* AuthApiUtil.h */,
+				465B4B261DAAFE0900E65AF9 /* AuthApiUtil.m */,
+				465B4B281DAB028200E65AF9 /* ApiUtil.h */,
+				465B4B291DAB028200E65AF9 /* ApiUtil.m */,
+				46A4B3871DADAD4100109926 /* QuotesApiUtil.h */,
+				46A4B3881DADAD4100109926 /* QuotesApiUtil.m */,
+			);
+			name = api;
+			sourceTree = "<group>";
+		};
+		465B4B2C1DAB22A300E65AF9 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B3E1DAB3C2C00E65AF9 /* quoteItDetail */,
+				465B4B351DAB28F500E65AF9 /* tabs */,
+				465B4B311DAB27EA00E65AF9 /* feed */,
+				465B4B2D1DAB22F000E65AF9 /* quoteIt */,
+				465B4B001DAAB15400E65AF9 /* login */,
+				465B4B011DAAB16F00E65AF9 /* register */,
+				465B4B1D1DAADBD900E65AF9 /* profile */,
+			);
+			name = components;
+			sourceTree = "<group>";
+		};
+		465B4B2D1DAB22F000E65AF9 /* quoteIt */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B3A1DAB343300E65AF9 /* views */,
+				465B4B2E1DAB232200E65AF9 /* QuoteItViewController.h */,
+				465B4B2F1DAB232200E65AF9 /* QuoteItViewController.m */,
+			);
+			name = quoteIt;
+			sourceTree = "<group>";
+		};
+		465B4B311DAB27EA00E65AF9 /* feed */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B3801DACCE6F00109926 /* views */,
+				465B4B321DAB27F700E65AF9 /* FeedViewController.h */,
+				465B4B331DAB27F700E65AF9 /* FeedViewController.m */,
+			);
+			name = feed;
+			sourceTree = "<group>";
+		};
+		465B4B351DAB28F500E65AF9 /* tabs */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B361DAB29CF00E65AF9 /* MyTabsController.h */,
+				465B4B371DAB29CF00E65AF9 /* MyTabsController.m */,
+			);
+			name = tabs;
+			sourceTree = "<group>";
+		};
+		465B4B3A1DAB343300E65AF9 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B3B1DAB344B00E65AF9 /* AboveKeyBoardView.h */,
+				465B4B3C1DAB344B00E65AF9 /* AboveKeyBoardView.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		465B4B3E1DAB3C2C00E65AF9 /* quoteItDetail */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B37B1DACBA1400109926 /* util */,
+				46A4B37A1DACBA0F00109926 /* models */,
+				46A4B3791DACBA0300109926 /* views */,
+				465B4B3F1DAB3C8700E65AF9 /* QuoteItDetailViewController.h */,
+				465B4B401DAB3C8700E65AF9 /* QuoteItDetailViewController.m */,
+			);
+			name = quoteItDetail;
+			sourceTree = "<group>";
+		};
 		46658A4D1DA9E3260043F2DC = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +229,14 @@
 		46658A581DA9E3260043F2DC /* Quotes */ = {
 			isa = PBXGroup;
 			children = (
+				46AD348A1DAB6AB200D3EA61 /* shared */,
+				465B4B2C1DAB22A300E65AF9 /* components */,
+				465B4B241DAAFDEF00E65AF9 /* api */,
+				465B4B051DAAB6E300E65AF9 /* vendor */,
 				46658A5C1DA9E3260043F2DC /* AppDelegate.h */,
 				46658A5D1DA9E3260043F2DC /* AppDelegate.m */,
-				46658A5F1DA9E3260043F2DC /* ViewController.h */,
-				46658A601DA9E3260043F2DC /* ViewController.m */,
-				46658A621DA9E3260043F2DC /* Main.storyboard */,
+				46A4B37F1DACBADE00109926 /* constants.h */,
+				465B4AF91DAA1D6900E65AF9 /* Main.storyboard */,
 				46658A651DA9E3260043F2DC /* Assets.xcassets */,
 				46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */,
 				46658A6A1DA9E3260043F2DC /* Info.plist */,
@@ -77,6 +251,65 @@
 				46658A5A1DA9E3260043F2DC /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46A4B3791DACBA0300109926 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				465B4AFC1DAAA5CD00E65AF9 /* ContactListTextField.h */,
+				465B4AFD1DAAA5CD00E65AF9 /* ContactListTextField.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		46A4B37A1DACBA0F00109926 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B37C1DACBA5300109926 /* Contact.h */,
+				46A4B37D1DACBA5300109926 /* Contact.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		46A4B37B1DACBA1400109926 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				46658A701DA9E7430043F2DC /* ContactBook.h */,
+				46658A711DA9E7430043F2DC /* ContactBook.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		46A4B3801DACCE6F00109926 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B3811DACCE8700109926 /* SearchButton.h */,
+				46A4B3821DACCE8700109926 /* SearchButton.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		46AD348A1DAB6AB200D3EA61 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				46AD348B1DAB6AC400D3EA61 /* views */,
+			);
+			name = shared;
+			sourceTree = "<group>";
+		};
+		46AD348B1DAB6AC400D3EA61 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				46AD348C1DAB6B0700D3EA61 /* QTSButton.h */,
+				46AD348D1DAB6B0700D3EA61 /* QTSButton.m */,
+				46AD348F1DAB6C7200D3EA61 /* QTSTextField.h */,
+				46AD34901DAB6C7200D3EA61 /* QTSTextField.m */,
+				46AD34921DAB7C6E00D3EA61 /* QuoteView.h */,
+				46AD34931DAB7C6E00D3EA61 /* QuoteView.m */,
+				46A4B3761DAC639F00109926 /* QTSImageView.h */,
+				46A4B3771DAC639F00109926 /* QTSImageView.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				465B4AFA1DAA1D6900E65AF9 /* Main.storyboard in Resources */,
 				46658A691DA9E3260043F2DC /* LaunchScreen.storyboard in Resources */,
 				46658A661DA9E3260043F2DC /* Assets.xcassets in Resources */,
-				46658A641DA9E3260043F2DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,23 +384,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46658A611DA9E3260043F2DC /* ViewController.m in Sources */,
+				465B4B411DAB3C8700E65AF9 /* QuoteItDetailViewController.m in Sources */,
+				46AD34941DAB7C6E00D3EA61 /* QuoteView.m in Sources */,
+				465B4B301DAB232200E65AF9 /* QuoteItViewController.m in Sources */,
+				465B4B341DAB27F700E65AF9 /* FeedViewController.m in Sources */,
+				465B4B041DAAB18D00E65AF9 /* RegisterViewController.m in Sources */,
+				465B4B201DAADBF200E65AF9 /* ProfileViewController.m in Sources */,
+				46658A721DA9E7430043F2DC /* ContactBook.m in Sources */,
 				46658A5E1DA9E3260043F2DC /* AppDelegate.m in Sources */,
+				46A4B3781DAC639F00109926 /* QTSImageView.m in Sources */,
+				465B4B2A1DAB028200E65AF9 /* ApiUtil.m in Sources */,
+				465B4B231DAADD5000E65AF9 /* LoginViewController.m in Sources */,
+				465B4B271DAAFE0900E65AF9 /* AuthApiUtil.m in Sources */,
+				46A4B3831DACCE8700109926 /* SearchButton.m in Sources */,
+				46A4B37E1DACBA5300109926 /* Contact.m in Sources */,
+				46AD34911DAB6C7200D3EA61 /* QTSTextField.m in Sources */,
+				46AD348E1DAB6B0700D3EA61 /* QTSButton.m in Sources */,
+				465B4B1C1DAAC7BE00E65AF9 /* A0SimpleKeychain.m in Sources */,
+				465B4B381DAB29CF00E65AF9 /* MyTabsController.m in Sources */,
 				46658A5B1DA9E3260043F2DC /* main.m in Sources */,
+				46A4B3891DADAD4100109926 /* QuotesApiUtil.m in Sources */,
+				465B4AFE1DAAA5CD00E65AF9 /* ContactListTextField.m in Sources */,
+				465B4B3D1DAB344B00E65AF9 /* AboveKeyBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		46658A621DA9E3260043F2DC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				46658A631DA9E3260043F2DC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -310,6 +554,7 @@
 				46658A6F1DA9E3260043F2DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "A0SimpleKeychain.h"
+#import "AuthApiUtil.h"
+#import "constants.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +19,49 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    // check for token in keychain
+    NSString *token = [[A0SimpleKeychain keychain] stringForKey:@"user-jwt"];
+    if (token && ![token isEqualToString:@""]) {
+        
+        // make api request
+        NSLog(@"attempting to authorize launch");
+        [AuthApiUtil refreshWithCompletionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+            if (!error) {
+                // check token
+                NSString *newToken = [jsonData objectForKey:@"token"];
+                if (newToken) {
+                    // Success
+                    NSLog(@"successfully authorized launch!!");
+                    
+                    // save new token
+                    [[A0SimpleKeychain keychain] setString:newToken forKey:JWT_KEY];
+                    
+                    // goto feed
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.window.rootViewController = [sb instantiateViewControllerWithIdentifier:@"TabCtrl"];
+                    });
+                } else {
+                    // goto register
+                    NSLog(@"No Response Token");
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.window.rootViewController = [sb instantiateViewControllerWithIdentifier:@"Register"];
+                    });
+                }
+            } else {
+                // goto register
+                NSLog(@"Error Connecting to refresh endpoint: %@", error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.window.rootViewController = [sb instantiateViewControllerWithIdentifier:@"Register"];
+                });
+            }
+        }];
+    } else {
+        // goto register
+        self.window.rootViewController = [sb instantiateViewControllerWithIdentifier:@"Register"];
+    }
+    
     return YES;
 }
 
