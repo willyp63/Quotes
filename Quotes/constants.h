@@ -9,6 +9,9 @@
 #ifndef constants_h
 #define constants_h
 
+// base api url
+#define BASE_API_URL @"http://murmuring-refuge-84679.herokuapp.com"
+
 // max characters in quote
 #define CHARACTER_LIMIT 200
 

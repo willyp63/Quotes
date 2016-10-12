@@ -8,12 +8,13 @@
 
 #import "QuotesApiUtil.h"
 #import "ApiUtil.h"
+#import "constants.h"
 
 @implementation QuotesApiUtil
 
 + (void)postQuoteWithBody:(NSDictionary *)body completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler{
     
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/quotes" withBody:body authorized:YES completionHandler:completionHandler];
+    [ApiUtil postTo:[NSString stringWithFormat:@"%@/quotes", BASE_API_URL] withBody:body authorized:YES completionHandler:completionHandler];
 }
 
 @end
