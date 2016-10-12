@@ -13,8 +13,10 @@
 -(id)initWithCNContact:(CNContact *)contact {
     self = [super init];
     if (self) {
-        // get full name
-        _fullName = [NSString stringWithFormat:@"%@ %@", contact.givenName, contact.familyName];
+        // get name
+        _firstName = contact.givenName;
+        _lastName = contact.familyName;
+        _fullName = [NSString stringWithFormat:@"%@ %@", _firstName, _lastName];
         
         // remove trailing space if no last name
         _fullName = [_fullName stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -29,14 +31,20 @@
     return self;
 }
 
--(id)initWithPhoneNumber:(NSString *)phoneNumber fullName:(NSString *)fullName imageData:(NSData *)imageData {
+-(id)initWithPhoneNumber:(NSString *)phoneNumber firstName:(NSString *)firstName lastName:(NSString *)lastName imageData:(NSData *)imageData {
     self = [super init];
     if (self) {
-        _fullName = fullName;
+        _firstName = firstName;
+        _lastName = lastName;
+        _fullName = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
         _phoneNumber = phoneNumber;
         _imageData = imageData;
     }
     return self;
+}
+
+-(NSDictionary *)dictionaryValue {
+    return [NSDictionary dictionaryWithObjectsAndKeys:_firstName, @"firstName", _lastName, @"lastName", _phoneNumber, @"phoneNumber", nil];
 }
 
 

@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The brown fox jumped over the river " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcT-Rn-eD2" customClass="QuoteView">
-                                <frame key="frameInset" minX="24" minY="318" width="335" height="166"/>
+                                <frame key="frameInset" minX="24" minY="269" width="335" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -326,6 +326,11 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-cX-b67">
+                                <frame key="frameInset" minX="169" minY="445" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -334,8 +339,9 @@
                         <outlet property="doneButton" destination="A4z-tI-hsP" id="X2g-s9-sAp"/>
                         <outlet property="heardField" destination="Jo7-lW-d83" id="ZET-1c-X2B"/>
                         <outlet property="monthField" destination="qSK-5L-3Xp" id="Djw-7F-ItG"/>
-                        <outlet property="quoteText" destination="jcT-Rn-eD2" id="Jbn-j0-p1c"/>
+                        <outlet property="quoteView" destination="jcT-Rn-eD2" id="y8L-RR-Rvt"/>
                         <outlet property="saidField" destination="kUt-po-Suf" id="7Nc-iR-A9y"/>
+                        <outlet property="spinner" destination="Gg1-cX-b67" id="Tv4-lv-opo"/>
                         <outlet property="yearField" destination="NjW-BS-k7K" id="4uJ-8r-LET"/>
                     </connections>
                 </viewController>
@@ -610,6 +616,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VGs-WJ-ibU"/>
-        <segue reference="Ycm-YE-hZI"/>
+        <segue reference="Am7-8g-lNg"/>
     </inferredMetricsTieBreakers>
 </document>

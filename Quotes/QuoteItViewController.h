@@ -10,4 +10,6 @@
 
 @interface QuoteItViewController : UIViewController <UITextViewDelegate>
 
+-(void)clearQuoteText;
+
 @end

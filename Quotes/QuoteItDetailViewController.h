@@ -11,6 +11,6 @@
 
 @interface QuoteItDetailViewController : UIViewController <UITextFieldDelegate, ContactListTextFieldDelegate>
 
-@property (strong, nonatomic) NSString *quote;
+@property (strong, nonatomic) NSString *quoteText;
 
 @end

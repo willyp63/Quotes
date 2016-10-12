@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet QTSTextField *dayField;
 @property (weak, nonatomic) IBOutlet QTSTextField *yearField;
 
-@property (weak, nonatomic) IBOutlet QuoteView *quoteText;
+@property (weak, nonatomic) IBOutlet QuoteView *quoteView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
@@ -38,7 +39,8 @@
     self.tabBarController.tabBar.hidden = YES;
     
     // set quote text
-    self.quoteText.text = self.quote;
+    NSLog(@"text is %@", self.quoteText);
+    self.quoteView.text = self.quoteText;
     
     // bring drop down text field views to front
     [self.view bringSubviewToFront:self.heardField];
@@ -54,6 +56,8 @@
     //disable done button
     self.doneButton.enabled = NO;
     [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    
+    [self hideLoader];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -73,17 +77,32 @@
     NSString *dateAsString = [NSString stringWithFormat:@"%@/%@/%@", self.monthField.text, self.dayField.text, self.yearField.text];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-    NSDate * date = [dateFormatter dateFromString:dateAsString];
-    if (date) {
+    NSDate * saidAtDate = [dateFormatter dateFromString:dateAsString];
+    if (saidAtDate) {
+        [self showLoader];
+        
         // request body
-        NSDictionary *body;
+        NSDictionary *saidBy = [self.saidField.contacts[0] dictionaryValue];
+        NSMutableArray *heardBy = [NSMutableArray arrayWithCapacity:self.heardField.contacts.count];
+        for (Contact *heardContact in self.heardField.contacts) {
+            [heardBy addObject:[heardContact dictionaryValue]];
+        }
+        NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys: self.quoteText, @"text", dateAsString, @"saidAt", saidBy, @"saidBy", heardBy, @"heardBy", nil];
         
         // make api request
         [QuotesApiUtil postQuoteWithBody:body completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
             if (!error) {
-                
+                // return to previously selected tab
+                MyTabsController *mtc = (MyTabsController *)self.tabBarController;
+                UINavigationController *nvc = self.navigationController;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [nvc popViewControllerAnimated:NO];
+                    [(QuoteItViewController *)nvc.viewControllers[0] clearQuoteText];
+                    [mtc setSelectedIndex:mtc.prevSelectedIndex];
+                });
             } else {
-                
+                [self hideLoader];
+                NSLog(@"There was an error: %@", error);
             }
         }];
     } else {
@@ -156,6 +175,18 @@
     }
     
     [self checkIfFormIsComplete];
+}
+
+- (void)showLoader {
+    self.spinner.hidden = NO;
+    [self.spinner startAnimating];
+    [self.view setUserInteractionEnabled:NO];
+}
+
+- (void)hideLoader {
+    self.spinner.hidden = YES;
+    [self.spinner stopAnimating];
+    [self.view setUserInteractionEnabled:YES];
 }
 
 //check if form is complete

@@ -75,7 +75,7 @@
         NSData *imageData = [NSData dataWithContentsOfFile:imagePath];
         
         // ad to list
-        Contact *userContact = [[Contact alloc] initWithPhoneNumber:phoneNumber fullName:fullName imageData:imageData];
+        Contact *userContact = [[Contact alloc] initWithPhoneNumber:phoneNumber firstName:firstName lastName:lastName imageData:imageData];
         [mapped addObject:userContact];
     }
     

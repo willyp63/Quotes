@@ -27,7 +27,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.textArea.text = PLACE_HOLDER_TEXT;
+    [self clearQuoteText];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,7 +43,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     // listen for keyboard showing
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardWillShowNotification
+                                                 name:UIKeyboardWillChangeFrameNotification
                                                object:nil];
 }
 
@@ -69,10 +69,12 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
         }];
     }
 }
+-(void)clearQuoteText {
+    self.textArea.text = PLACE_HOLDER_TEXT;
+}
 
 - (IBAction)cancel:(id)sender {
-    // reset text
-    self.textArea.text = PLACE_HOLDER_TEXT;
+    [self clearQuoteText];
     
     // return to previously selected tab
     MyTabsController *mtc = (MyTabsController *)self.tabBarController;
@@ -85,6 +87,10 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 
 #pragma mark - UIKeyboardWillShowNotification
 - (void)keyboardWasShown:(NSNotification *)notification {
+    if (self.aboveKeyboardView) {
+        [self.aboveKeyboardView removeFromSuperview];
+    }
+    
     CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
     
     // animation frames
@@ -162,7 +168,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     UIViewController *dest = [segue destinationViewController];
     if ([dest class] == [QuoteItDetailViewController class]) {
         // pass quote to detail VC
-        [(QuoteItDetailViewController *)dest setQuote: self.textArea.text];
+        [(QuoteItDetailViewController *)dest setQuoteText: self.textArea.text];
     }
 }
 
