@@ -34,11 +34,11 @@
 - (IBAction)register:(id)sender {
     [self showLoader];
     
-    // request params
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys: _firstName.text, @"fname", _lastName.text, @"lname", _phoneNumber.text, @"phone", _password.text, @"pwd", nil];
+    // request body
+    NSDictionary *body = [NSDictionary dictionaryWithObjectsAndKeys: _firstName.text, @"firstName", _lastName.text, @"lastName", _phoneNumber.text, @"phoneNumber", _password.text, @"password", nil];
     
     // make api request
-    [AuthApiUtil registerWithParams:params completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+    [AuthApiUtil registerWithBody:body completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
         if (!error) {
             // check for token
             NSString *token = [jsonData objectForKey:@"token"];
@@ -49,7 +49,7 @@
                 // save user info and token
                 [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
                 if (self.profileImage.image) {
-                    NSString *userPhoneNumber = [[jsonData objectForKey:@"user"] objectForKey:@"phone"];
+                    NSString *userPhoneNumber = [[jsonData objectForKey:@"user"] objectForKey:@"phoneNumber"];
                     [self saveProfileImage:self.profileImage.image underPhoneNumber:userPhoneNumber];
                 }
                 
@@ -105,9 +105,9 @@
 
 - (void)saveUser:(NSDictionary *)user andToken:(NSString *)token {
     [[A0SimpleKeychain keychain] setString:token forKey:JWT_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"fname"] forKey:FIRST_NAME_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"lname"] forKey:LAST_NAME_KEY];
-    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"phone"] forKey:PHONE_NUMBER_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"firstName"] forKey:FIRST_NAME_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"lastName"] forKey:LAST_NAME_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"phoneNumber"] forKey:PHONE_NUMBER_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

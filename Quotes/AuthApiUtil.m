@@ -11,22 +11,14 @@
 
 @implementation AuthApiUtil
 
-+ (void)registerWithParams:(NSDictionary *)params completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
++ (void)registerWithBody:(NSDictionary *)body completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
     
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/register" withParams:params authorized:NO completionHandler:completionHandler];
+    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/register" withBody:body authorized:NO completionHandler:completionHandler];
 }
 
-+ (void)loginWithParams:(NSDictionary *)params completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
++ (void)loginWithBody:(NSDictionary *)body completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
     
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/login" withParams:params authorized:NO completionHandler:completionHandler];
-}
-
-+ (void)logoutWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/logout" withParams:nil authorized:YES completionHandler:completionHandler];
-}
-
-+ (void)refreshWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/refresh" withParams:nil authorized:YES completionHandler:completionHandler];
+    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/auth/login" withBody:body authorized:NO completionHandler:completionHandler];
 }
 
 @end

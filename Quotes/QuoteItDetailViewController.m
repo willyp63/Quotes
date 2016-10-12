@@ -75,11 +75,11 @@
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     NSDate * date = [dateFormatter dateFromString:dateAsString];
     if (date) {
-        // request params
-        NSDictionary *params;
+        // request body
+        NSDictionary *body;
         
         // make api request
-        [QuotesApiUtil postQuoteWithParams:params completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+        [QuotesApiUtil postQuoteWithBody:body completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
             if (!error) {
                 
             } else {

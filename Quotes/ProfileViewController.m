@@ -50,25 +50,10 @@
 }
 
 - (IBAction)logout:(id)sender {
-    [self.view setUserInteractionEnabled:NO];
+    // remove token from keychain
+    [[A0SimpleKeychain keychain] setString:@"" forKey:JWT_KEY];
     
-    // make api request
-    [AuthApiUtil logoutWithCompletionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
-        if (!error) {
-            // Success
-            NSLog(@"Logout successful!");
-            
-            // remove token from keychain
-            [[A0SimpleKeychain keychain] setString:@"" forKey:JWT_KEY];
-            
-            // segue
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self performSegueWithIdentifier:@"logout" sender:self];
-            });
-        } else {
-            NSLog(@"Error Connecting to logout endpoint: %@", error);
-        }
-    }];
+    [self performSegueWithIdentifier:@"logout" sender:self];
 }
 
 @end

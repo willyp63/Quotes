@@ -11,9 +11,9 @@
 
 @implementation QuotesApiUtil
 
-+ (void)postQuoteWithParams:(NSDictionary *)params completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler{
++ (void)postQuoteWithBody:(NSDictionary *)body completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler{
     
-    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/quotes" withParams:params authorized:YES completionHandler:completionHandler];
+    [ApiUtil postTo:@"http://murmuring-refuge-84679.herokuapp.com/quotes" withBody:body authorized:YES completionHandler:completionHandler];
 }
 
 @end

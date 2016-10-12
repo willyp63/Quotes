@@ -17,7 +17,7 @@
     return [jsonString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-+ (void)postTo:(NSString *)urlString withParams:(NSDictionary *)params authorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler{
++ (void)postTo:(NSString *)urlString withBody:(NSDictionary *)body authorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler{
     
     // format request
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -37,8 +37,8 @@
     request.HTTPMethod = @"POST";
     
     // format body
-    if (params) {
-        NSData *requestData = [self jsonDataWithDictionary:params];
+    if (body) {
+        NSData *requestData = [self jsonDataWithDictionary:body];
         request.HTTPBody = requestData;
     }
     

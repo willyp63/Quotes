@@ -10,6 +10,6 @@
 
 @interface ApiUtil : NSObject
 
-+ (void)postTo:(NSString *)urlString withParams:(NSDictionary *)params authorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
++ (void)postTo:(NSString *)urlString withBody:(NSDictionary *)body authorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
 
 @end

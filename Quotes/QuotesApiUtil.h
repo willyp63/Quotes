@@ -10,6 +10,6 @@
 
 @interface QuotesApiUtil : NSObject
 
-+ (void)postQuoteWithParams:(NSDictionary *)params completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
++ (void)postQuoteWithBody:(NSDictionary *)body completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
 
 @end
