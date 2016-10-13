@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The brown fox jumped over the river " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcT-Rn-eD2" customClass="QuoteView">
-                                <frame key="frameInset" minX="24" minY="269" width="335" height="168"/>
+                                <frame key="frameInset" minX="24" minY="269" width="335" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -327,7 +327,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Gg1-cX-b67">
-                                <frame key="frameInset" minX="169" minY="445" width="37" height="37"/>
+                                <frame key="frameInset" minX="173" minY="506" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>

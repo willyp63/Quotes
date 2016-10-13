@@ -20,7 +20,7 @@ static CGFloat const SEARCH_VIEW_HEIGHT = 40.0f;
 
 static CGFloat const TABLE_CELL_EXTRA_HIEGHT = 100.0f;
 static CGFloat const HEARD_BY_LABEL_WIDTH = 90.0f;
-static CGFloat const QUOTE_WIDTH_RATIO = 0.95f;
+static CGFloat const QUOTE_WIDTH_RATIO = 0.66f;
 
 static CGFloat const QUOTE_FONT_SIZE = 20.0f;
 static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
