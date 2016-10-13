@@ -102,7 +102,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     
     // calc quote height
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat quoteWidth =  screenWidth - (IMAGE_WIDTH_RATIO * screenWidth) - (TABLE_CELL_PADDING * 3);
+    CGFloat quoteWidth =  screenWidth - (IMAGE_WIDTH_RATIO * screenWidth) - (TABLE_CELL_PADDING * 6);
     CGFloat quoteHeight = [QuoteView heightOfText:quote.text withFont:[UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE] width:quoteWidth];
     
     // calc heard by height

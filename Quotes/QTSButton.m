@@ -29,7 +29,7 @@
 
 -(void)customSetup {
     self.layer.cornerRadius = self.frame.size.height / 2.0f;
-    self.layer.borderWidth = 1.0f;
+    self.layer.borderWidth = 1.5f;
     self.layer.borderColor = [[UIColor colorWithRed:MAIN_COLOR_RED green:MAIN_COLOR_GREEN blue:MAIN_COLOR_BLUE alpha:1.0] CGColor];
 }
 

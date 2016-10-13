@@ -78,7 +78,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     NSDate * saidAtDate = [dateFormatter dateFromString:dateAsString];
-    if (saidAtDate) {
+    if (saidAtDate && [saidAtDate compare:[NSDate date]] != NSOrderedDescending) {
         [self showLoader];
         
         // request body

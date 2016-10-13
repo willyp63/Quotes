@@ -147,9 +147,8 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     }
     
     self.aboveKeyboardView.charCount.text = [NSString stringWithFormat:@"%li", CHARACTER_LIMIT - [newText length]];
-    self.textArea.text = newText;
     [self enableButtonIfValidQuote];
-    return NO;
+    return YES;
 }
 
 - (void)enableButtonIfValidQuote {
