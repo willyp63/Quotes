@@ -375,7 +375,7 @@
                                 </items>
                             </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="85R-9h-ENq">
-                                <frame key="frameInset" minY="321" width="375" height="293"/>
+                                <frame key="frameInset" minY="321" width="375" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
@@ -425,10 +425,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-P9-m6w">
-                                <frame key="frameInset" minY="68" width="375" height="543"/>
+                                <frame key="frameInset" minY="68" width="375" height="550"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="mu7-3B-5Ac" id="GxE-dA-56d"/>
+                                    <outlet property="delegate" destination="mu7-3B-5Ac" id="OTb-zJ-Omf"/>
+                                </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-gy-XXe">
+                                <frame key="frameInset" minX="169" minY="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ys-jd-aD9">
                                 <frame key="frameInset" minX="16" minY="20" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -457,7 +466,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="feedIcon" id="Lzl-nQ-ifH"/>
                     <connections>
+                        <outlet property="quotesTableView" destination="lrx-P9-m6w" id="TTf-6N-BTb"/>
                         <outlet property="searchButton" destination="MsJ-GQ-iaV" id="ko8-Qm-3cQ"/>
+                        <outlet property="spinner" destination="fuw-gy-XXe" id="4sA-VH-7Rv"/>
                         <outlet property="titleView" destination="3Ys-jd-aD9" id="4DR-Cn-NOq"/>
                     </connections>
                 </viewController>
@@ -616,6 +627,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VGs-WJ-ibU"/>
-        <segue reference="Am7-8g-lNg"/>
+        <segue reference="Ycm-YE-hZI"/>
     </inferredMetricsTieBreakers>
 </document>

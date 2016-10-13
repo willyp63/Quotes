@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="quote" rowHeight="287" id="KGk-i7-Jjw" customClass="QuoteTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="412" height="287"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <frame key="frameInset" width="412" height="286"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-Kh-wWH" customClass="QuoteView">
+                        <frame key="frameInset" minX="66" minY="51" width="333" height="150"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</string>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Said_By_Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf5-ol-MiC">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="fO3-0d-P45"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHP-UZ-0DA">
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="4bg-a5-FD2"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heard by: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agE-x0-Rfb">
+                        <frame key="frameInset" minX="66" minY="209" width="85" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="4BN-IU-o41"/>
+                            <constraint firstAttribute="height" constant="40" id="wkZ-iz-z96"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuoteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B07-IC-Jud">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="Aai-IE-WVX"/>
+                        </constraints>
+                    </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Heard_by_users" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-y3-CG1">
+                        <frame key="frameInset" minX="151" minY="209" width="248" height="70"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="leading" secondItem="iEe-Kh-wWH" secondAttribute="leading" id="0qe-zw-rMP"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4V5-sT-c0B"/>
+                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="bottom" constant="8" id="5ac-1P-2if"/>
+                    <constraint firstItem="agE-x0-Rfb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="58" id="E0i-km-bB7"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="top" secondItem="agE-x0-Rfb" secondAttribute="top" id="Gfd-3l-UuK"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rHP-UZ-0DA" secondAttribute="trailing" constant="5" id="IKZ-CH-seT"/>
+                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="leading" secondItem="agE-x0-Rfb" secondAttribute="leading" id="N3O-aO-wVG"/>
+                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="top" secondItem="rHP-UZ-0DA" secondAttribute="top" id="TL1-1b-f8N"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="top" secondItem="iEe-Kh-wWH" secondAttribute="bottom" constant="-8" id="WdU-25-15a"/>
+                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="leading" secondItem="Rf5-ol-MiC" secondAttribute="trailing" constant="8" symbolic="YES" id="a7G-A1-HhO"/>
+                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="leading" secondItem="B07-IC-Jud" secondAttribute="trailing" constant="8" symbolic="YES" id="cUA-nb-THE"/>
+                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="bottom" secondItem="rHP-UZ-0DA" secondAttribute="bottom" id="eg6-3q-ZD7"/>
+                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="trailing" secondItem="iEe-Kh-wWH" secondAttribute="trailing" id="fX3-7X-AuI"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="leading" secondItem="agE-x0-Rfb" secondAttribute="trailing" id="loT-WX-gSV"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qcU-RL-64S"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="top" id="qx1-MV-2sG"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8O0-y3-CG1" secondAttribute="bottom" id="uRO-RF-w9c"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="trailing" secondItem="iEe-Kh-wWH" secondAttribute="trailing" id="zGf-L7-89f"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="heardByLabel" destination="8O0-y3-CG1" id="DuZ-L3-Yyw"/>
+                <outlet property="quoteView" destination="iEe-Kh-wWH" id="dYN-iK-SUg"/>
+                <outlet property="saidAtLabel" destination="rHP-UZ-0DA" id="t96-Ez-6eG"/>
+                <outlet property="saidByImageView" destination="B07-IC-Jud" id="0aq-C4-z8c"/>
+                <outlet property="saidByLabel" destination="Rf5-ol-MiC" id="xJf-V8-r3t"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="100.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="QuoteIcon" width="35" height="35"/>
+    </resources>
+</document>

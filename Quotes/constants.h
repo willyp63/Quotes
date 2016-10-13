@@ -28,6 +28,6 @@
 
 // font
 #define MAIN_FONT @"Helvetica-Bold"
-#define MAIN_FONT_NON_BOLD @"Helvetica-Bold"
+#define MAIN_FONT_NON_BOLD @"Helvetica"
 
 #endif /* constants_h */

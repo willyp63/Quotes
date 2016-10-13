@@ -12,4 +12,6 @@
 
 + (void)postTo:(NSString *)urlString withBody:(NSDictionary *)body authorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
 
++ (void)getFrom:(NSString *)urlString withAuthorized:(BOOL)authorized completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
+
 @end

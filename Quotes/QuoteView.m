@@ -7,6 +7,7 @@
 //
 
 #import "QuoteView.h"
+#import "Contact.h"
 
 @implementation QuoteView
 

@@ -33,4 +33,9 @@
     self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
+-(void)setImage:(UIImage *)image {
+    [super setImage:image];
+    [self customSetup];
+}
+
 @end

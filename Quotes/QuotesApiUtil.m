@@ -17,4 +17,9 @@
     [ApiUtil postTo:[NSString stringWithFormat:@"%@/quotes", BASE_API_URL] withBody:body authorized:YES completionHandler:completionHandler];
 }
 
++ (void)getMyQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
+    
+    [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me", BASE_API_URL] withAuthorized:YES completionHandler:completionHandler];
+}
+
 @end
