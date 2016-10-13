@@ -14,4 +14,8 @@
 
 + (void)getMyQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
 
++ (void)getMySaidQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
+
++ (void)getMyHeardQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
+
 @end

@@ -178,6 +178,10 @@
 }
 
 - (void)showLoader {
+    //disable done button
+    self.doneButton.enabled = NO;
+    [self.doneButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
     [self.view setUserInteractionEnabled:NO];
@@ -187,6 +191,8 @@
     self.spinner.hidden = YES;
     [self.spinner stopAnimating];
     [self.view setUserInteractionEnabled:YES];
+    
+    [self checkIfFormIsComplete];
 }
 
 //check if form is complete

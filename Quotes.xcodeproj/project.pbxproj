@@ -25,12 +25,10 @@
 		46658A661DA9E3260043F2DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46658A651DA9E3260043F2DC /* Assets.xcassets */; };
 		46658A691DA9E3260043F2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */; };
 		46658A721DA9E7430043F2DC /* ContactBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A711DA9E7430043F2DC /* ContactBook.m */; };
-		46A4B3781DAC639F00109926 /* QTSImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3771DAC639F00109926 /* QTSImageView.m */; };
 		46A4B37E1DACBA5300109926 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B37D1DACBA5300109926 /* Contact.m */; };
 		46A4B3831DACCE8700109926 /* SearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3821DACCE8700109926 /* SearchButton.m */; };
 		46A4B3891DADAD4100109926 /* QuotesApiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3881DADAD4100109926 /* QuotesApiUtil.m */; };
 		46A4B38E1DAEF99B00109926 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B38D1DAEF99B00109926 /* Quote.m */; };
-		46A4B3931DAF065000109926 /* QuoteDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A4B3921DAF065000109926 /* QuoteDetailView.xib */; };
 		46A4B3971DAF092000109926 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3951DAF092000109926 /* QuoteTableViewCell.m */; };
 		46A4B3981DAF092000109926 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */; };
 		46AD348E1DAB6B0700D3EA61 /* QTSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD348D1DAB6B0700D3EA61 /* QTSButton.m */; };
@@ -73,8 +71,6 @@
 		46658A6A1DA9E3260043F2DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46658A701DA9E7430043F2DC /* ContactBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactBook.h; sourceTree = "<group>"; };
 		46658A711DA9E7430043F2DC /* ContactBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactBook.m; sourceTree = "<group>"; };
-		46A4B3761DAC639F00109926 /* QTSImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSImageView.h; sourceTree = "<group>"; };
-		46A4B3771DAC639F00109926 /* QTSImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTSImageView.m; sourceTree = "<group>"; };
 		46A4B37C1DACBA5300109926 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		46A4B37D1DACBA5300109926 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		46A4B37F1DACBADE00109926 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -84,7 +80,6 @@
 		46A4B3881DADAD4100109926 /* QuotesApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesApiUtil.m; sourceTree = "<group>"; };
 		46A4B38C1DAEF99B00109926 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
 		46A4B38D1DAEF99B00109926 /* Quote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Quote.m; sourceTree = "<group>"; };
-		46A4B3921DAF065000109926 /* QuoteDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteDetailView.xib; sourceTree = "<group>"; };
 		46A4B3941DAF092000109926 /* QuoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteTableViewCell.h; sourceTree = "<group>"; };
 		46A4B3951DAF092000109926 /* QuoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteTableViewCell.m; sourceTree = "<group>"; };
 		46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteTableViewCell.xib; sourceTree = "<group>"; };
@@ -249,7 +244,6 @@
 				46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */,
 				46658A6A1DA9E3260043F2DC /* Info.plist */,
 				46658A591DA9E3260043F2DC /* Supporting Files */,
-				46A4B3921DAF065000109926 /* QuoteDetailView.xib */,
 			);
 			path = Quotes;
 			sourceTree = "<group>";
@@ -319,8 +313,6 @@
 				46AD34901DAB6C7200D3EA61 /* QTSTextField.m */,
 				46AD34921DAB7C6E00D3EA61 /* QuoteView.h */,
 				46AD34931DAB7C6E00D3EA61 /* QuoteView.m */,
-				46A4B3761DAC639F00109926 /* QTSImageView.h */,
-				46A4B3771DAC639F00109926 /* QTSImageView.m */,
 				46A4B3941DAF092000109926 /* QuoteTableViewCell.h */,
 				46A4B3951DAF092000109926 /* QuoteTableViewCell.m */,
 				46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */,
@@ -387,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46A4B3931DAF065000109926 /* QuoteDetailView.xib in Resources */,
 				465B4AFA1DAA1D6900E65AF9 /* Main.storyboard in Resources */,
 				46658A691DA9E3260043F2DC /* LaunchScreen.storyboard in Resources */,
 				46658A661DA9E3260043F2DC /* Assets.xcassets in Resources */,
@@ -410,7 +401,6 @@
 				465B4B201DAADBF200E65AF9 /* ProfileViewController.m in Sources */,
 				46658A721DA9E7430043F2DC /* ContactBook.m in Sources */,
 				46658A5E1DA9E3260043F2DC /* AppDelegate.m in Sources */,
-				46A4B3781DAC639F00109926 /* QTSImageView.m in Sources */,
 				465B4B2A1DAB028200E65AF9 /* ApiUtil.m in Sources */,
 				465B4B231DAADD5000E65AF9 /* LoginViewController.m in Sources */,
 				465B4B271DAAFE0900E65AF9 /* AuthApiUtil.m in Sources */,

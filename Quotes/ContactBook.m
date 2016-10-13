@@ -76,7 +76,7 @@
         
         // ad to list
         Contact *userContact = [[Contact alloc] initWithPhoneNumber:phoneNumber firstName:firstName lastName:lastName imageData:imageData];
-        [mapped addObject:userContact];
+        [mapped insertObject:userContact atIndex:0];
     }
     
     return mapped;

@@ -3,7 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,71 +18,68 @@
                 <frame key="frameInset" width="412" height="286"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-Kh-wWH" customClass="QuoteView">
-                        <frame key="frameInset" minX="66" minY="51" width="333" height="150"/>
+                    <textView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iEe-Kh-wWH" customClass="QuoteView">
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</string>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Said_By_Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf5-ol-MiC">
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="fO3-0d-P45"/>
-                        </constraints>
+                    <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Said_By_Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf5-ol-MiC">
+                        <frame key="frameInset" minX="57" minY="8" width="249" height="50"/>
                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHP-UZ-0DA">
+                    <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="12/12/2016" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rHP-UZ-0DA">
+                        <frame key="frameInset" minX="314" minY="8" width="90" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="4bg-a5-FD2"/>
+                            <constraint firstAttribute="width" constant="90" id="IhR-Fr-Mkd"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Heard by: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agE-x0-Rfb">
-                        <frame key="frameInset" minX="66" minY="209" width="85" height="36"/>
+                    <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heard by: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agE-x0-Rfb">
                         <constraints>
-                            <constraint firstAttribute="width" constant="90" id="4BN-IU-o41"/>
-                            <constraint firstAttribute="height" constant="40" id="wkZ-iz-z96"/>
+                            <constraint firstAttribute="width" secondItem="agE-x0-Rfb" secondAttribute="height" multiplier="92:21" id="KNr-sP-Bil"/>
+                            <constraint firstAttribute="width" constant="92" id="SC8-ra-kdM"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="QuoteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="B07-IC-Jud">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B07-IC-Jud">
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="Aai-IE-WVX"/>
+                            <constraint firstAttribute="width" secondItem="B07-IC-Jud" secondAttribute="height" multiplier="1:1" id="H9L-Kk-lpp"/>
                         </constraints>
                     </imageView>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Heard_by_users" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-y3-CG1">
-                        <frame key="frameInset" minX="151" minY="209" width="248" height="70"/>
+                    <textView verifyAmbiguity="off" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Heard_by_users" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8O0-y3-CG1">
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="leading" secondItem="iEe-Kh-wWH" secondAttribute="leading" id="0qe-zw-rMP"/>
-                    <constraint firstItem="B07-IC-Jud" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="4V5-sT-c0B"/>
-                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="bottom" constant="8" id="5ac-1P-2if"/>
-                    <constraint firstItem="agE-x0-Rfb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="58" id="E0i-km-bB7"/>
-                    <constraint firstItem="8O0-y3-CG1" firstAttribute="top" secondItem="agE-x0-Rfb" secondAttribute="top" id="Gfd-3l-UuK"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="rHP-UZ-0DA" secondAttribute="trailing" constant="5" id="IKZ-CH-seT"/>
-                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="leading" secondItem="agE-x0-Rfb" secondAttribute="leading" id="N3O-aO-wVG"/>
-                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="top" secondItem="rHP-UZ-0DA" secondAttribute="top" id="TL1-1b-f8N"/>
-                    <constraint firstItem="8O0-y3-CG1" firstAttribute="top" secondItem="iEe-Kh-wWH" secondAttribute="bottom" constant="-8" id="WdU-25-15a"/>
-                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="leading" secondItem="Rf5-ol-MiC" secondAttribute="trailing" constant="8" symbolic="YES" id="a7G-A1-HhO"/>
-                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="leading" secondItem="B07-IC-Jud" secondAttribute="trailing" constant="8" symbolic="YES" id="cUA-nb-THE"/>
-                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="bottom" secondItem="rHP-UZ-0DA" secondAttribute="bottom" id="eg6-3q-ZD7"/>
-                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="trailing" secondItem="iEe-Kh-wWH" secondAttribute="trailing" id="fX3-7X-AuI"/>
-                    <constraint firstItem="8O0-y3-CG1" firstAttribute="leading" secondItem="agE-x0-Rfb" secondAttribute="trailing" id="loT-WX-gSV"/>
-                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="qcU-RL-64S"/>
-                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="top" id="qx1-MV-2sG"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8O0-y3-CG1" secondAttribute="bottom" id="uRO-RF-w9c"/>
-                    <constraint firstItem="8O0-y3-CG1" firstAttribute="trailing" secondItem="iEe-Kh-wWH" secondAttribute="trailing" id="zGf-L7-89f"/>
+                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="leading" secondItem="Rf5-ol-MiC" secondAttribute="leading" id="3cn-F2-A58"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="8" id="7Ha-ET-yDp"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="top" id="EBZ-r1-vnt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="iEe-Kh-wWH" secondAttribute="trailing" constant="8" id="HI3-Bj-NFe"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="top" secondItem="agE-x0-Rfb" secondAttribute="top" constant="-8" id="HRe-y7-Vpo"/>
+                    <constraint firstItem="agE-x0-Rfb" firstAttribute="leading" secondItem="iEe-Kh-wWH" secondAttribute="leading" id="Ksd-fH-Pg8"/>
+                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="top" id="R1u-A5-Mxn"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="bottom" secondItem="Rf5-ol-MiC" secondAttribute="bottom" id="RHJ-DV-bx8"/>
+                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="bottom" secondItem="Rf5-ol-MiC" secondAttribute="bottom" id="RYh-CF-Gmg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8O0-y3-CG1" secondAttribute="trailing" constant="8" id="VFN-7s-uxb"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rHP-UZ-0DA" secondAttribute="trailing" constant="8" id="WL1-G1-fkU"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1:8" id="Wzk-UF-Zu9"/>
+                    <constraint firstItem="B07-IC-Jud" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="dRd-NM-xzd"/>
+                    <constraint firstItem="Rf5-ol-MiC" firstAttribute="leading" secondItem="B07-IC-Jud" secondAttribute="trailing" constant="8" id="ebu-IQ-IPq"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8O0-y3-CG1" secondAttribute="bottom" constant="8" id="fhG-Hz-GVT"/>
+                    <constraint firstItem="8O0-y3-CG1" firstAttribute="leading" secondItem="agE-x0-Rfb" secondAttribute="trailing" id="x0d-fD-Jhk"/>
+                    <constraint firstItem="rHP-UZ-0DA" firstAttribute="leading" secondItem="Rf5-ol-MiC" secondAttribute="trailing" constant="8" id="zE7-Z8-jjc"/>
+                    <constraint firstItem="iEe-Kh-wWH" firstAttribute="top" secondItem="Rf5-ol-MiC" secondAttribute="bottom" constant="-8" id="zcs-Xf-kxT"/>
                 </constraints>
+                <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="heardByLabel" destination="8O0-y3-CG1" id="DuZ-L3-Yyw"/>
@@ -92,7 +91,4 @@
             <point key="canvasLocation" x="3" y="100.5"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="QuoteIcon" width="35" height="35"/>
-    </resources>
 </document>

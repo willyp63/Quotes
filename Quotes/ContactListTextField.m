@@ -8,7 +8,6 @@
 
 #import "ContactListTextField.h"
 #import "ContactBook.h"
-#import "QTSImageView.h"
 #import "constants.h"
 
 static NSString *const REUSE_CELL_ID = @"suggestion";
@@ -108,11 +107,6 @@ static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
     cell.layer.borderWidth = 0.5f;
     cell.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     cell.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-    
-    // set image view
-    cell.imageView.image = [UIImage imageWithData:contact.imageData];
-    cell.imageView.layer.cornerRadius = TABLE_CELL_HIEGHT / 2.0f;
-    cell.imageView.layer.masksToBounds = YES;
     
     return cell;
 }

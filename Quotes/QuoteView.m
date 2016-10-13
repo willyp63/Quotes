@@ -32,12 +32,15 @@
 }
 
 -(void)setText:(NSString *)text {
+    self.attributedText = [QuoteView attributedTextWithText:text font:self.font color:self.textColor];
+}
+
++ (NSAttributedString *)attributedTextWithText:(NSString *)text font:(UIFont *)font color:(UIColor *)color {
     // attr string
     NSString *spacedText = [NSString stringWithFormat:@"  %@  ", text];
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:spacedText
                                                                                          attributes:
-                                                   @{NSFontAttributeName: self.font,
-                                                     NSForegroundColorAttributeName: self.textColor}];
+                                                   @{NSFontAttributeName: font, NSForegroundColorAttributeName: color}];
     
     // insert left quote
     NSTextAttachment *leftQuoteAttachment = [[NSTextAttachment alloc] init];
@@ -49,8 +52,15 @@
     rightQuoteAttachment.image = [UIImage imageNamed:@"rightQuotions"];
     [attributedString insertAttributedString:[NSAttributedString attributedStringWithAttachment:rightQuoteAttachment] atIndex:[attributedString length] - 1];
     
-    // set text
-    self.attributedText = attributedString;
+    return attributedString;
+}
+
++ (CGFloat)heightOfText:(NSString *)text withFont:(UIFont *)font width:(CGFloat)width {
+    NSAttributedString *attrText = [QuoteView attributedTextWithText:text font:font color:[UIColor blackColor]];
+    
+    CGRect quoteRect = [attrText boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
+    
+    return quoteRect.size.height;
 }
 
 // bubble up touch began

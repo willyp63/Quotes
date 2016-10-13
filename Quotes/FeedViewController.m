@@ -13,14 +13,15 @@
 #import "QuotesApiUtil.h"
 #import "QuoteTableViewCell.h"
 #import "ContactBook.h"
+#import "QuoteView.h"
 
 static CGFloat const ANIMATION_TIME = 0.5f;
 static CGFloat const UI_PADDING = 20.0f;
 static CGFloat const SEARCH_VIEW_HEIGHT = 40.0f;
 
-static CGFloat const TABLE_CELL_EXTRA_HIEGHT = 100.0f;
-static CGFloat const HEARD_BY_LABEL_WIDTH = 90.0f;
-static CGFloat const QUOTE_WIDTH_RATIO = 0.66f;
+static CGFloat const TABLE_CELL_PADDING = 8.0f;
+static CGFloat const HEARD_BY_LABEL_WIDTH = 92.0f;
+static CGFloat const IMAGE_WIDTH_RATIO = 1.0f/8.0f;
 
 static CGFloat const QUOTE_FONT_SIZE = 20.0f;
 static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
@@ -100,16 +101,15 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     Quote *quote = self.quotes[indexPath.row];
     
     // calc quote height
-    UIFont *quoteFont = [UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE];
-    CGFloat quoteWidth = [UIScreen mainScreen].bounds.size.width * QUOTE_WIDTH_RATIO;
-    CGRect quoteRect = [quote.text boundingRectWithSize:CGSizeMake(quoteWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: quoteFont} context:nil];
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat quoteWidth =  screenWidth - (IMAGE_WIDTH_RATIO * screenWidth) - (TABLE_CELL_PADDING * 3);
+    CGFloat quoteHeight = [QuoteView heightOfText:quote.text withFont:[UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE] width:quoteWidth];
     
     // calc heard by height
-    UIFont *heardByFont = [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE];
-    CGFloat heardByWidth = quoteWidth - HEARD_BY_LABEL_WIDTH;
-    CGRect heardByRect = [quote.text boundingRectWithSize:CGSizeMake(heardByWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: heardByFont} context:nil];
+    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH;
+    CGFloat heardByHeight = [[quote heardByFullNameList] boundingRectWithSize:CGSizeMake(heardByWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE]} context:nil].size.height;
     
-    return quoteRect.size.height + heardByRect.size.height + TABLE_CELL_EXTRA_HIEGHT;
+    return quoteHeight + heardByHeight + (IMAGE_WIDTH_RATIO * screenWidth) + (TABLE_CELL_PADDING * 7);
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -124,6 +124,9 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     cell.quoteView.textColor = [UIColor blackColor];
     cell.quoteView.text = quote.text;
     
+    cell.saidByImageView.layer.cornerRadius = ([UIScreen mainScreen].bounds.size.width * IMAGE_WIDTH_RATIO) / 2.0f;
+    cell.saidByImageView.layer.masksToBounds = YES;
+    
     NSString *userPhoneNumber = [[NSUserDefaults standardUserDefaults] objectForKey:PHONE_NUMBER_KEY];
     if ([quote.saidBy.phoneNumber isEqualToString:userPhoneNumber]) {
         // load profile image
@@ -133,9 +136,12 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
         NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
         if (imagePath) {
             cell.saidByImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
-            cell.saidByImageView.layer.cornerRadius = 25.0f;
-            cell.saidByImageView.layer.masksToBounds = YES;
         }
+    }
+    
+    if (!cell.saidByImageView.image) {
+        cell.saidByImageView.layer.borderWidth = 2.0f;
+        cell.saidByImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     }
     
     return cell;

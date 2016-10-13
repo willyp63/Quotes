@@ -22,4 +22,14 @@
     [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me", BASE_API_URL] withAuthorized:YES completionHandler:completionHandler];
 }
 
++ (void)getMySaidQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
+    
+    [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me/said", BASE_API_URL] withAuthorized:YES completionHandler:completionHandler];
+}
+
++ (void)getMyHeardQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
+    
+    [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me/heard", BASE_API_URL] withAuthorized:YES completionHandler:completionHandler];
+}
+
 @end

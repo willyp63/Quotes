@@ -40,7 +40,12 @@
         if (i == self.heardBy.count - 1) {
             list = [list stringByAppendingString:self.heardBy[i].fullName];
         } else {
-            list = [list stringByAppendingString:[NSString stringWithFormat:@"%@, ", self.heardBy[i].fullName ]];
+            // drop trailing space
+            NSString *fullName = self.heardBy[i].fullName;
+            if ([fullName characterAtIndex:fullName.length - 1] == ' ') {
+                fullName = [fullName substringToIndex:fullName.length - 1];
+            }
+            list = [list stringByAppendingString:[NSString stringWithFormat:@"%@, ", fullName ]];
         }
     }
     return list;

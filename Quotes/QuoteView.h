@@ -10,4 +10,6 @@
 
 @interface QuoteView : UITextView
 
++ (CGFloat)heightOfText:(NSString *)text withFont:(UIFont *)font width:(CGFloat)width;
+
 @end

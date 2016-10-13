@@ -28,6 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2.0f;
+    self.profileImage.layer.masksToBounds = YES;
+    self.profileImage.layer.borderWidth = 2.0f;
+    self.profileImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
     [self hideLoader];
 }
 
@@ -85,6 +90,8 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
     self.profileImage.image = image;
+    self.profileImage.layer.borderWidth = 0.0f;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
