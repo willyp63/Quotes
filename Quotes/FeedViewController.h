@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchView.h"
 
-@interface FeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FeedViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, SearchViewDelegate>
 
 @end

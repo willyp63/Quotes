@@ -31,6 +31,7 @@
 		46A4B38E1DAEF99B00109926 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B38D1DAEF99B00109926 /* Quote.m */; };
 		46A4B3971DAF092000109926 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3951DAF092000109926 /* QuoteTableViewCell.m */; };
 		46A4B3981DAF092000109926 /* QuoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */; };
+		46A4B39F1DB06D4200109926 /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B39E1DB06D4200109926 /* SearchView.m */; };
 		46AD348E1DAB6B0700D3EA61 /* QTSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD348D1DAB6B0700D3EA61 /* QTSButton.m */; };
 		46AD34911DAB6C7200D3EA61 /* QTSTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD34901DAB6C7200D3EA61 /* QTSTextField.m */; };
 		46AD34941DAB7C6E00D3EA61 /* QuoteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AD34931DAB7C6E00D3EA61 /* QuoteView.m */; };
@@ -83,6 +84,8 @@
 		46A4B3941DAF092000109926 /* QuoteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuoteTableViewCell.h; sourceTree = "<group>"; };
 		46A4B3951DAF092000109926 /* QuoteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuoteTableViewCell.m; sourceTree = "<group>"; };
 		46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteTableViewCell.xib; sourceTree = "<group>"; };
+		46A4B39D1DB06D4200109926 /* SearchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		46A4B39E1DB06D4200109926 /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
 		46AD348C1DAB6B0700D3EA61 /* QTSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSButton.h; sourceTree = "<group>"; };
 		46AD348D1DAB6B0700D3EA61 /* QTSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QTSButton.m; sourceTree = "<group>"; };
 		46AD348F1DAB6C7200D3EA61 /* QTSTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QTSTextField.h; sourceTree = "<group>"; };
@@ -290,6 +293,8 @@
 			children = (
 				46A4B3811DACCE8700109926 /* SearchButton.h */,
 				46A4B3821DACCE8700109926 /* SearchButton.m */,
+				46A4B39D1DB06D4200109926 /* SearchView.h */,
+				46A4B39E1DB06D4200109926 /* SearchView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A4B39F1DB06D4200109926 /* SearchView.m in Sources */,
 				465B4B411DAB3C8700E65AF9 /* QuoteItDetailViewController.m in Sources */,
 				46AD34941DAB7C6E00D3EA61 /* QuoteView.m in Sources */,
 				465B4B301DAB232200E65AF9 /* QuoteItViewController.m in Sources */,
