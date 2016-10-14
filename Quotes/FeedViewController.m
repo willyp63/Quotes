@@ -7,38 +7,27 @@
 //
 
 #import "FeedViewController.h"
-#import "SearchButton.h"
 #import "Quote.h"
 #import "constants.h"
-#import "QuotesApiUtil.h"
-#import "QuoteTableViewCell.h"
-#import "ContactBook.h"
 #import "QuoteView.h"
+#import "QuotesTableView.h"
+#import "QuotesStore.h"
 
 static CGFloat const ANIMATION_TIME = 0.5f;
 static CGFloat const UI_PADDING = 20.0f;
 static CGFloat const SEARCH_VIEW_HEIGHT = 40.0f;
 
-static CGFloat const TABLE_CELL_PADDING = 8.0f;
-static CGFloat const HEARD_BY_LABEL_WIDTH = 92.0f;
-static CGFloat const IMAGE_WIDTH_RATIO = 1.0f/8.0f;
-
-static CGFloat const QUOTE_FONT_SIZE = 20.0f;
-static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
-
 @interface FeedViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *titleView;
-@property (weak, nonatomic) IBOutlet SearchButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @property (strong, nonatomic) SearchView *searchView;
 @property (nonatomic) CGRect titleViewInitialFrame;
 @property (nonatomic) CGRect searchViewInitialFrame;
 
-@property (weak, nonatomic) IBOutlet UITableView *quotesTableView;
-@property (strong, nonatomic) NSMutableArray<Quote *> *quotes;
-
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (weak, nonatomic) IBOutlet QuotesTableView *quotesTableView;
+@property (strong, nonatomic) QuotesStore *quotesStore;
 
 @end
 
@@ -46,10 +35,18 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // create store
+    self.quotesStore = [[QuotesStore alloc] init];
+    
+    // strech image in search button
+    self.searchButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
+    self.searchButton.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self fetchQuotes];
+    // refresh table
+    [self fetchQuotesWithForceRequest:YES];
 }
 
 - (IBAction)showSearchField:(id)sender {
@@ -57,10 +54,10 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 }
 
 - (void)animateInSearchView {
-    // make search button inactive
+    // Make Search Button Inactive
     [self.searchButton setUserInteractionEnabled:NO];
     
-    // slide title view left
+    // Slide Title View Left
     CGRect currFrame = self.titleView.frame;
     CGFloat searchButtonWidth = self.searchButton.frame.size.width;
     self.titleViewInitialFrame = self.titleView.frame;
@@ -70,7 +67,8 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
         self.titleView.frame = endAnimationFrame;
     }completion:nil];
     
-    // animate in search view
+    
+    // Create, add, and Animate in Search View
     CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
     CGFloat statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     
@@ -78,7 +76,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     endAnimationFrame = CGRectMake(searchButtonWidth + UI_PADDING, statusBarHeight, self.searchViewInitialFrame.size.width, SEARCH_VIEW_HEIGHT);
     
     self.searchView = [[SearchView alloc] initWithFrame:self.searchViewInitialFrame];
-    self.searchView.delegate = self;
+    self.searchView.delegate = self; // make self delegate
     
     [self.view addSubview:self.searchView];
     [UIView animateWithDuration:ANIMATION_TIME animations:^{
@@ -87,22 +85,24 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 }
 
 - (void)animateOutSearchView {
-    // dismiss keyboard
+    // Dismiss Keyboard
     [self.view endEditing:YES];
     
-    // slide title view right
+    // Slide Title View Right
     [UIView animateWithDuration:ANIMATION_TIME animations:^{
         self.titleView.frame = self.titleViewInitialFrame;
     }completion:nil];
     
-    // animate out search view
+    
+    // Animate out Search View and then remove
     [UIView animateWithDuration:ANIMATION_TIME animations:^{
         self.searchView.frame = self.searchViewInitialFrame;
     }completion:^(BOOL finished){
+        // remove search view
         [self.searchView removeFromSuperview];
         self.searchView = nil;
         
-        // make search button active
+        // Make Search Button Active
         [self.searchButton setUserInteractionEnabled:YES];
     }];
 }
@@ -111,92 +111,35 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 - (void)searchView:(id)searchView didCancelWithText:(NSString *)text {
     [self animateOutSearchView];
     
-    [self fetchQuotes];
+    // clear cached queries to avoid using up too much memory
+    [self.quotesStore clearCachedQueries];
+    
+    // fetch all quotes
+    [self fetchQuotesWithForceRequest:NO];
 }
 
 -(void)searchView:(id)searchView didChangeTextTo:(NSString *)text {
+    // fetch quotes for query
     if ([text isEqualToString:@""]) {
-        [self fetchQuotes];
+        [self fetchQuotesWithForceRequest:NO];
     } else {
-        [self fetchQuotesWithQuery:text];
+        [self fetchQuotesWithQuery:text forceRequest:NO];
     }
 }
 
-#pragma mark UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.quotes.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Quote *quote = self.quotes[indexPath.row];
-    
-    // calc quote height
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    CGFloat quoteWidth =  screenWidth - (IMAGE_WIDTH_RATIO * screenWidth) - (TABLE_CELL_PADDING * 6);
-    CGFloat quoteHeight = [QuoteView heightOfText:quote.text withFont:[UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE] width:quoteWidth];
-    
-    // calc heard by height
-    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH - TABLE_CELL_PADDING;
-    CGFloat heardByHeight = [[quote heardByFullNameList] boundingRectWithSize:CGSizeMake(heardByWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE]} context:nil].size.height;
-    
-    return quoteHeight + heardByHeight + (IMAGE_WIDTH_RATIO * screenWidth) + (TABLE_CELL_PADDING * 7);
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Quote *quote = self.quotes[indexPath.row];
-    QuoteTableViewCell *cell = (QuoteTableViewCell *)[[[NSBundle mainBundle] loadNibNamed:@"QuoteTableViewCell" owner:self options:nil] objectAtIndex:0];
-    
-    cell.saidByLabel.text = quote.saidBy.fullName;
-    cell.heardByLabel.text = [quote heardByFullNameList];
-    cell.heardByLabel.font = [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE];
-    cell.saidAtLabel.text = quote.saidAt;
-    cell.quoteView.font = [UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE];
-    cell.quoteView.textColor = [UIColor blackColor];
-    cell.quoteView.text = quote.text;
-    
-    cell.saidByImageView.layer.cornerRadius = ([UIScreen mainScreen].bounds.size.width * IMAGE_WIDTH_RATIO) / 2.0f;
-    cell.saidByImageView.layer.masksToBounds = YES;
-    
-    NSString *userPhoneNumber = [[NSUserDefaults standardUserDefaults] objectForKey:PHONE_NUMBER_KEY];
-    if ([quote.saidBy.phoneNumber isEqualToString:userPhoneNumber]) {
-        // load profile image
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
-        NSString *imageName = [NSString stringWithFormat:@"%@.jpg", userPhoneNumber];
-        NSString *imagePath = [documentsDirectory stringByAppendingPathComponent:imageName];
-        if (imagePath) {
-            cell.saidByImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfFile:imagePath]];
-        }
+- (void)fetchQuotesWithForceRequest:(BOOL)forceRequest {
+    // hide quotes table if there are no quotes currently in the table
+    if (!self.quotesTableView.quotes.count) {
+        [self.quotesTableView setShowingLoader:YES];
     }
     
-    if (!cell.saidByImageView.image) {
-        cell.saidByImageView.layer.borderWidth = 2.0f;
-        cell.saidByImageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    }
-    
-    return cell;
-}
-
-- (void)fetchQuotes {
-    if (!self.quotes.count) {
-        [self hideQuotesTable];
-    }
-    
-    NSLog(@"Loading quotes...");
-    [QuotesApiUtil getMyQuotesWithCompletionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+    // fetch quotes from store
+    [self.quotesStore fetchMyQuotesWithForceRequest:forceRequest completionHandler:^(NSArray<Quote *> *quotes, NSError *error) {
         if (!error) {
-            NSArray *quotes = [jsonData objectForKey:@"quotes"];
-            self.quotes = [NSMutableArray arrayWithCapacity:quotes.count];
-            for (NSDictionary *quoteDict in quotes) {
-                [self.quotes addObject:[[Quote alloc] initWithDictionary:quoteDict]];
-            }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showQuotesTable];
+                self.quotesTableView.quotes = quotes;
+                [self.quotesTableView setShowingLoader:NO];
+                [self.quotesTableView reloadData];
             });
         } else {
             NSLog(@"Error loading quotes!");
@@ -204,52 +147,24 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     }];
 }
 
-- (void)fetchQuotesWithQuery:(NSString *)query {
-    if (!self.quotes.count) {
-        [self hideQuotesTable];
+- (void)fetchQuotesWithQuery:(NSString *)query forceRequest:(BOOL)forceRequest {
+    // hide quotes table if there are no quotes currently in the table
+    if (!self.quotesTableView.quotes.count) {
+        [self.quotesTableView setShowingLoader:YES];
     }
     
-    NSLog(@"Loading quotes with query: %@", query);
-    [QuotesApiUtil getMyQuotesWithQuery:query completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+    // fetch quotes from store
+    [self.quotesStore fetchMyQuotesWithQuery:query forceRequest:forceRequest completionHandler:^(NSArray<Quote *> *quotes, NSError *error) {
         if (!error) {
-            NSArray *quotes = [jsonData objectForKey:@"quotes"];
-            self.quotes = [NSMutableArray arrayWithCapacity:quotes.count];
-            for (NSDictionary *quoteDict in quotes) {
-                [self.quotes addObject:[[Quote alloc] initWithDictionary:quoteDict]];
-            }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showQuotesTable];
+                self.quotesTableView.quotes = quotes;
+                [self.quotesTableView setShowingLoader:NO];
+                [self.quotesTableView reloadData];
             });
         } else {
             NSLog(@"Error loading quotes!");
         }
     }];
-}
-
-- (void)hideQuotesTable {
-    // show spinner
-    self.spinner.hidden = NO;
-    [self.spinner startAnimating];
-    [self.quotesTableView setUserInteractionEnabled:NO];
-    
-    self.quotesTableView.hidden = YES;
-}
-
-
-- (void)showQuotesTable {
-    // hide spinner
-    self.spinner.hidden = YES;
-    [self.spinner stopAnimating];
-    [self.quotesTableView setUserInteractionEnabled:YES];
-    
-    self.quotesTableView.hidden = NO;
-    [self.quotesTableView reloadData];
-}
-
-#pragma mark UITableViewDelegate
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 @end

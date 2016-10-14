@@ -45,6 +45,7 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
 -(void)customSetup {
     self.text = @"";
     
+    // Create TextField
     CGFloat myHeightMinusPadding = self.bounds.size.height - (VERTICAL_PADDING * 2);
     CGRect textFieldRect = CGRectMake(HORIZONTAL_PADDING,
                                       VERTICAL_PADDING,
@@ -53,6 +54,7 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
     self.textField = [[UITextField alloc] initWithFrame:textFieldRect];
     self.textField.delegate = self;
     
+    // Create ClearTextButton
     CGRect clearTextButtonRect = CGRectMake(self.textField.frame.size.width + (HORIZONTAL_PADDING * 2) + CLEAR_TEXT_BUTTON_PADDING,
                                       VERTICAL_PADDING + CLEAR_TEXT_BUTTON_PADDING,
                                       myHeightMinusPadding - (CLEAR_TEXT_BUTTON_PADDING * 2),
@@ -65,6 +67,7 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
     [self.clearTextButton setTintColor:[UIColor blackColor]];
     [self.clearTextButton addTarget:self action:@selector(clearText:) forControlEvents:UIControlEventTouchUpInside];
     
+    // Create Cancel Button
     CGRect cancelButtonRect = CGRectMake(self.clearTextButton.frame.origin.x + myHeightMinusPadding + HORIZONTAL_PADDING - CLEAR_TEXT_BUTTON_PADDING,
                                         VERTICAL_PADDING,
                                         CANCEL_BUTTON_WIDTH,
@@ -76,10 +79,12 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
     self.cancelButton.titleLabel.font = [UIFont fontWithName:MAIN_FONT size:18.0f];
     [self.cancelButton addTarget:self action:@selector(cancel:) forControlEvents:UIControlEventTouchUpInside];
     
+    // add subviews
     [self addSubview:self.textField];
     [self addSubview:self.clearTextButton];
     [self addSubview:self.cancelButton];
     
+    // pull up keyboard
     [self.textField becomeFirstResponder];
 }
 
@@ -93,6 +98,7 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
 -(void)cancel:(UIButton *)sender {
     self.textField.text = @"";
     
+    // notify delegate
     [self.delegate searchView:self didCancelWithText:self.text];
 }
 
@@ -105,10 +111,6 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
     // notify delegate
     [self.delegate searchView:self didChangeTextTo:newText];
     
-    return YES;
-}
-
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
     return YES;
 }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46154C651DB13F46007BFD27 /* QuotesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46154C641DB13F46007BFD27 /* QuotesTableView.m */; };
+		46154C681DB1469C007BFD27 /* QuotesStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 46154C671DB1469C007BFD27 /* QuotesStore.m */; };
 		465B4AFA1DAA1D6900E65AF9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 465B4AF91DAA1D6900E65AF9 /* Main.storyboard */; };
 		465B4AFE1DAAA5CD00E65AF9 /* ContactListTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4AFD1DAAA5CD00E65AF9 /* ContactListTextField.m */; };
 		465B4B041DAAB18D00E65AF9 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 465B4B031DAAB18D00E65AF9 /* RegisterViewController.m */; };
@@ -26,7 +28,6 @@
 		46658A691DA9E3260043F2DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46658A671DA9E3260043F2DC /* LaunchScreen.storyboard */; };
 		46658A721DA9E7430043F2DC /* ContactBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 46658A711DA9E7430043F2DC /* ContactBook.m */; };
 		46A4B37E1DACBA5300109926 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B37D1DACBA5300109926 /* Contact.m */; };
-		46A4B3831DACCE8700109926 /* SearchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3821DACCE8700109926 /* SearchButton.m */; };
 		46A4B3891DADAD4100109926 /* QuotesApiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3881DADAD4100109926 /* QuotesApiUtil.m */; };
 		46A4B38E1DAEF99B00109926 /* Quote.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B38D1DAEF99B00109926 /* Quote.m */; };
 		46A4B3971DAF092000109926 /* QuoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46A4B3951DAF092000109926 /* QuoteTableViewCell.m */; };
@@ -39,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46154C631DB13F46007BFD27 /* QuotesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesTableView.h; sourceTree = "<group>"; };
+		46154C641DB13F46007BFD27 /* QuotesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesTableView.m; sourceTree = "<group>"; };
+		46154C661DB1469C007BFD27 /* QuotesStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesStore.h; sourceTree = "<group>"; };
+		46154C671DB1469C007BFD27 /* QuotesStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesStore.m; sourceTree = "<group>"; };
 		465B4AF91DAA1D6900E65AF9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		465B4AFC1DAAA5CD00E65AF9 /* ContactListTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListTextField.h; sourceTree = "<group>"; };
 		465B4AFD1DAAA5CD00E65AF9 /* ContactListTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListTextField.m; sourceTree = "<group>"; };
@@ -76,8 +81,6 @@
 		46A4B37C1DACBA5300109926 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		46A4B37D1DACBA5300109926 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 		46A4B37F1DACBADE00109926 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
-		46A4B3811DACCE8700109926 /* SearchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchButton.h; sourceTree = "<group>"; };
-		46A4B3821DACCE8700109926 /* SearchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchButton.m; sourceTree = "<group>"; };
 		46A4B3871DADAD4100109926 /* QuotesApiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuotesApiUtil.h; sourceTree = "<group>"; };
 		46A4B3881DADAD4100109926 /* QuotesApiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuotesApiUtil.m; sourceTree = "<group>"; };
 		46A4B38C1DAEF99B00109926 /* Quote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Quote.h; sourceTree = "<group>"; };
@@ -108,6 +111,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46154C691DB146A3007BFD27 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B3A71DB09DB300109926 /* NSString+URLEncode.h */,
+				46A4B3A81DB09DB300109926 /* NSString+URLEncode.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		46154C6A1DB146AB007BFD27 /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				465B4B251DAAFE0900E65AF9 /* AuthApiUtil.h */,
+				465B4B261DAAFE0900E65AF9 /* AuthApiUtil.m */,
+			);
+			name = auth;
+			sourceTree = "<group>";
+		};
+		46154C6B1DB146B3007BFD27 /* quotes */ = {
+			isa = PBXGroup;
+			children = (
+				46A4B3871DADAD4100109926 /* QuotesApiUtil.h */,
+				46A4B3881DADAD4100109926 /* QuotesApiUtil.m */,
+				46154C661DB1469C007BFD27 /* QuotesStore.h */,
+				46154C671DB1469C007BFD27 /* QuotesStore.m */,
+			);
+			name = quotes;
+			sourceTree = "<group>";
+		};
 		465B4B001DAAB15400E65AF9 /* login */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,14 +179,11 @@
 		465B4B241DAAFDEF00E65AF9 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				465B4B251DAAFE0900E65AF9 /* AuthApiUtil.h */,
-				465B4B261DAAFE0900E65AF9 /* AuthApiUtil.m */,
+				46154C6B1DB146B3007BFD27 /* quotes */,
+				46154C6A1DB146AB007BFD27 /* auth */,
+				46154C691DB146A3007BFD27 /* util */,
 				465B4B281DAB028200E65AF9 /* ApiUtil.h */,
 				465B4B291DAB028200E65AF9 /* ApiUtil.m */,
-				46A4B3871DADAD4100109926 /* QuotesApiUtil.h */,
-				46A4B3881DADAD4100109926 /* QuotesApiUtil.m */,
-				46A4B3A71DB09DB300109926 /* NSString+URLEncode.h */,
-				46A4B3A81DB09DB300109926 /* NSString+URLEncode.m */,
 			);
 			name = api;
 			sourceTree = "<group>";
@@ -296,8 +325,6 @@
 		46A4B3801DACCE6F00109926 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				46A4B3811DACCE8700109926 /* SearchButton.h */,
-				46A4B3821DACCE8700109926 /* SearchButton.m */,
 				46A4B39D1DB06D4200109926 /* SearchView.h */,
 				46A4B39E1DB06D4200109926 /* SearchView.m */,
 			);
@@ -326,6 +353,8 @@
 				46A4B3941DAF092000109926 /* QuoteTableViewCell.h */,
 				46A4B3951DAF092000109926 /* QuoteTableViewCell.m */,
 				46A4B3961DAF092000109926 /* QuoteTableViewCell.xib */,
+				46154C631DB13F46007BFD27 /* QuotesTableView.h */,
+				46154C641DB13F46007BFD27 /* QuotesTableView.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -411,18 +440,19 @@
 				465B4B341DAB27F700E65AF9 /* FeedViewController.m in Sources */,
 				465B4B041DAAB18D00E65AF9 /* RegisterViewController.m in Sources */,
 				465B4B201DAADBF200E65AF9 /* ProfileViewController.m in Sources */,
+				46154C651DB13F46007BFD27 /* QuotesTableView.m in Sources */,
 				46658A721DA9E7430043F2DC /* ContactBook.m in Sources */,
 				46658A5E1DA9E3260043F2DC /* AppDelegate.m in Sources */,
 				465B4B2A1DAB028200E65AF9 /* ApiUtil.m in Sources */,
 				465B4B231DAADD5000E65AF9 /* LoginViewController.m in Sources */,
 				465B4B271DAAFE0900E65AF9 /* AuthApiUtil.m in Sources */,
-				46A4B3831DACCE8700109926 /* SearchButton.m in Sources */,
 				46A4B37E1DACBA5300109926 /* Contact.m in Sources */,
 				46A4B38E1DAEF99B00109926 /* Quote.m in Sources */,
 				46AD34911DAB6C7200D3EA61 /* QTSTextField.m in Sources */,
 				46A4B3971DAF092000109926 /* QuoteTableViewCell.m in Sources */,
 				46AD348E1DAB6B0700D3EA61 /* QTSButton.m in Sources */,
 				465B4B1C1DAAC7BE00E65AF9 /* A0SimpleKeychain.m in Sources */,
+				46154C681DB1469C007BFD27 /* QuotesStore.m in Sources */,
 				465B4B381DAB29CF00E65AF9 /* MyTabsController.m in Sources */,
 				46658A5B1DA9E3260043F2DC /* main.m in Sources */,
 				46A4B3891DADAD4100109926 /* QuotesApiUtil.m in Sources */,

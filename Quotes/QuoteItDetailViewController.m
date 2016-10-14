@@ -39,7 +39,6 @@
     self.tabBarController.tabBar.hidden = YES;
     
     // set quote text
-    NSLog(@"text is %@", self.quoteText);
     self.quoteView.text = self.quoteText;
     
     // bring drop down text field views to front
@@ -67,13 +66,14 @@
     self.tabBarController.tabBar.hidden = NO;
 }
 
-// actions
+// Back Action
 - (IBAction)goBack:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+// Submit Action
 - (IBAction)submit:(id)sender {
-    // check for valid date
+    // check for valid date and date being today or in the past
     NSString *dateAsString = [NSString stringWithFormat:@"%@/%@/%@", self.monthField.text, self.dayField.text, self.yearField.text];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
@@ -81,7 +81,7 @@
     if (saidAtDate && [saidAtDate compare:[NSDate date]] != NSOrderedDescending) {
         [self showLoader];
         
-        // request body
+        // format request body
         NSDictionary *saidBy = [self.saidField.contacts[0] dictionaryValue];
         NSMutableArray *heardBy = [NSMutableArray arrayWithCapacity:self.heardField.contacts.count];
         for (Contact *heardContact in self.heardField.contacts) {
@@ -97,7 +97,7 @@
                 UINavigationController *nvc = self.navigationController;
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [nvc popViewControllerAnimated:NO];
-                    [(QuoteItViewController *)nvc.viewControllers[0] clearQuoteText];
+                    [(QuoteItViewController *)nvc.viewControllers[0] clearQuoteText]; // clear text in quoteIt VC
                     [mtc setSelectedIndex:mtc.prevSelectedIndex];
                 });
             } else {
@@ -139,16 +139,17 @@
 
 #pragma mark UITextFieldDelegate
 -(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    // get new string
-    NSString *newString = [NSString stringWithString:textField.text];
-    newString = [newString stringByReplacingCharactersInRange:range withString:string];
+    // get new text
+    NSString *newText = [NSString stringWithString:textField.text];
+    newText = [newText stringByReplacingCharactersInRange:range withString:string];
     
-    // dont allow more chars then plac holder
-    if (newString.length > textField.placeholder.length) {
+    // dont allow more chars then place holder
+    if (newText.length > textField.placeholder.length) {
         return NO;
     }
     
-    textField.text = newString;
+    // update text and check if form is complete
+    textField.text = newText;
     [self checkIfFormIsComplete];
     
     return NO;
@@ -195,7 +196,6 @@
     [self checkIfFormIsComplete];
 }
 
-//check if form is complete
 - (void)checkIfFormIsComplete {
     if (self.saidField.contacts.count >= 1 &&
         self.heardField.contacts.count >= 1 &&

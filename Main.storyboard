@@ -377,14 +377,10 @@
                                     <outlet property="delegate" destination="S6d-Wo-d63" id="mLr-6h-e80"/>
                                 </connections>
                             </tabBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="85R-9h-ENq">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="85R-9h-ENq" customClass="QuotesTableView">
                                 <frame key="frameInset" minY="321" width="375" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="S6d-Wo-d63" id="zb9-xE-tdE"/>
-                                    <outlet property="delegate" destination="S6d-Wo-d63" id="8ve-jh-jfG"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf5-I5-fS0" customClass="QTSButton">
                                 <frame key="frameInset" minX="125" minY="209" width="125" height="50"/>
@@ -404,11 +400,6 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8eO-xV-9hb">
-                                <frame key="frameInset" minY="450" width="375" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -418,7 +409,6 @@
                         <outlet property="nameLabel" destination="rug-c4-Svl" id="sRk-Cr-4sL"/>
                         <outlet property="profileImage" destination="uqU-4n-OLt" id="v0O-Ju-bfd"/>
                         <outlet property="quotesTableView" destination="85R-9h-ENq" id="bRO-gu-t8a"/>
-                        <outlet property="spinner" destination="8eO-xV-9hb" id="yL9-Kv-65J"/>
                         <segue destination="EJi-fr-JHq" kind="showDetail" identifier="logout" id="Ycm-YE-hZI"/>
                     </connections>
                 </viewController>
@@ -438,20 +428,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-P9-m6w">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lrx-P9-m6w" customClass="QuotesTableView">
                                 <frame key="frameInset" minY="68" width="375" height="550"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="mu7-3B-5Ac" id="GxE-dA-56d"/>
-                                    <outlet property="delegate" destination="mu7-3B-5Ac" id="OTb-zJ-Omf"/>
-                                </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fuw-gy-XXe">
-                                <frame key="frameInset" minX="169" minY="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Ys-jd-aD9">
                                 <frame key="frameInset" minX="16" minY="20" width="343" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -463,7 +444,7 @@
                                         <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsJ-GQ-iaV" customClass="SearchButton">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MsJ-GQ-iaV">
                                         <frame key="frameInset" minX="303" minY="4" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -482,7 +463,6 @@
                     <connections>
                         <outlet property="quotesTableView" destination="lrx-P9-m6w" id="TTf-6N-BTb"/>
                         <outlet property="searchButton" destination="MsJ-GQ-iaV" id="ko8-Qm-3cQ"/>
-                        <outlet property="spinner" destination="fuw-gy-XXe" id="4sA-VH-7Rv"/>
                         <outlet property="titleView" destination="3Ys-jd-aD9" id="4DR-Cn-NOq"/>
                     </connections>
                 </viewController>
@@ -640,7 +620,7 @@
         <image name="searchIcon" width="20" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Ycm-YE-hZI"/>
         <segue reference="qus-4f-Dwa"/>
-        <segue reference="Am7-8g-lNg"/>
     </inferredMetricsTieBreakers>
 </document>

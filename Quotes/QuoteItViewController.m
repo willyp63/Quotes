@@ -13,6 +13,7 @@
 #import "constants.h"
 
 static CGFloat const ABOVE_KEYBOARD_VIEW_HEIGHT = 60.0f;
+static CGFloat const KEYBOARD_ANIMATION_DURATION = 0.9f;
 static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 
 @interface QuoteItViewController ()
@@ -62,7 +63,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     } else {
         // animate removal
         CGRect initRect = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height, [UIScreen mainScreen].bounds.size.width, ABOVE_KEYBOARD_VIEW_HEIGHT);
-        [UIView animateWithDuration:0.7 animations:^{
+        [UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
             self.aboveKeyboardView.frame = initRect;
         } completion:^(BOOL finsihed){
             [self.aboveKeyboardView removeFromSuperview];
@@ -87,6 +88,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 
 #pragma mark - UIKeyboardWillShowNotification
 - (void)keyboardWasShown:(NSNotification *)notification {
+    // remove old above keyboard view
     if (self.aboveKeyboardView) {
         [self.aboveKeyboardView removeFromSuperview];
     }
@@ -100,23 +102,23 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
                                           keyboardFrame.size.width,
                                           ABOVE_KEYBOARD_VIEW_HEIGHT);
     
-    // init view
+    // init above keyboard view
     self.aboveKeyboardView = [[AboveKeyBoardView alloc] initWithFrame:startAnimationFrame buttonAction:@selector(showQuoteItDetail:) target:self];
     self.aboveKeyboardView.backgroundColor = [UIColor whiteColor];
     
-    // enable/disable button
+    // check if "quoteIt" button should be enabled
     [self enableButtonIfValidQuote];
     
-    // set charcount
+    // set character count
     if ([self.textArea.text isEqualToString:PLACE_HOLDER_TEXT]) {
         self.aboveKeyboardView.charCount.text = [NSString stringWithFormat:@"%d", CHARACTER_LIMIT];
     } else {
         self.aboveKeyboardView.charCount.text = [NSString stringWithFormat:@"%li", CHARACTER_LIMIT - self.textArea.text.length];
     }
     
-    // add and animate in
+    // add view and animate in
     [self.view addSubview:self.aboveKeyboardView];
-    [UIView animateWithDuration:0.9 animations:^{
+    [UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
         self.aboveKeyboardView.frame = endAnimationFrame;
     }];
 }
@@ -136,18 +138,20 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
         return NO;
     }
     
-    // get new substring
+    // get new text
     NSString *newText = [NSString stringWithString:textView.text];
     newText = [newText stringByReplacingCharactersInRange:range withString:text];
     
-    // set char count
+    // dont allow text to go over character limit
     if ([newText length] > CHARACTER_LIMIT) {
         self.aboveKeyboardView.charCount.text = @"0";
         return NO;
     }
     
+    // set character count and check if "quoteIt" button should be enabled
     self.aboveKeyboardView.charCount.text = [NSString stringWithFormat:@"%li", CHARACTER_LIMIT - [newText length]];
     [self enableButtonIfValidQuote];
+    
     return YES;
 }
 
