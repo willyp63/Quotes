@@ -15,7 +15,7 @@
 
 @end
 
-@interface SearchView : UIView
+@interface SearchView : UIView <UITextFieldDelegate>
 
 @property (strong, nonatomic) id <SearchViewDelegate> delegate;
 

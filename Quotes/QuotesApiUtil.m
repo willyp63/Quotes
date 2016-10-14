@@ -9,6 +9,7 @@
 #import "QuotesApiUtil.h"
 #import "ApiUtil.h"
 #import "constants.h"
+#import "NSString+URLEncode.h"
 
 @implementation QuotesApiUtil
 
@@ -30,6 +31,11 @@
 + (void)getMyHeardQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
     
     [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me/heard", BASE_API_URL] withAuthorized:YES completionHandler:completionHandler];
+}
+
++ (void)getMyQuotesWithQuery:(NSString *)query completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler {
+    
+    [ApiUtil getFrom:[NSString stringWithFormat:@"%@/quotes/me?q=%@", BASE_API_URL, [query urlencode]] withAuthorized:YES completionHandler:completionHandler];
 }
 
 @end

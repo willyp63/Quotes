@@ -87,6 +87,9 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 }
 
 - (void)animateOutSearchView {
+    // dismiss keyboard
+    [self.view endEditing:YES];
+    
     // slide title view right
     [UIView animateWithDuration:ANIMATION_TIME animations:^{
         self.titleView.frame = self.titleViewInitialFrame;
@@ -97,6 +100,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
         self.searchView.frame = self.searchViewInitialFrame;
     }completion:^(BOOL finished){
         [self.searchView removeFromSuperview];
+        self.searchView = nil;
         
         // make search button active
         [self.searchButton setUserInteractionEnabled:YES];
@@ -106,6 +110,16 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
 #pragma mark SearchViewDelegate
 - (void)searchView:(id)searchView didCancelWithText:(NSString *)text {
     [self animateOutSearchView];
+    
+    [self fetchQuotes];
+}
+
+-(void)searchView:(id)searchView didChangeTextTo:(NSString *)text {
+    if ([text isEqualToString:@""]) {
+        [self fetchQuotes];
+    } else {
+        [self fetchQuotesWithQuery:text];
+    }
 }
 
 #pragma mark UITableViewDataSource
@@ -126,7 +140,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     CGFloat quoteHeight = [QuoteView heightOfText:quote.text withFont:[UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE] width:quoteWidth];
     
     // calc heard by height
-    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH;
+    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH - TABLE_CELL_PADDING;
     CGFloat heardByHeight = [[quote heardByFullNameList] boundingRectWithSize:CGSizeMake(heardByWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE]} context:nil].size.height;
     
     return quoteHeight + heardByHeight + (IMAGE_WIDTH_RATIO * screenWidth) + (TABLE_CELL_PADDING * 7);
@@ -190,11 +204,34 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     }];
 }
 
+- (void)fetchQuotesWithQuery:(NSString *)query {
+    if (!self.quotes.count) {
+        [self hideQuotesTable];
+    }
+    
+    NSLog(@"Loading quotes with query: %@", query);
+    [QuotesApiUtil getMyQuotesWithQuery:query completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSArray *quotes = [jsonData objectForKey:@"quotes"];
+            self.quotes = [NSMutableArray arrayWithCapacity:quotes.count];
+            for (NSDictionary *quoteDict in quotes) {
+                [self.quotes addObject:[[Quote alloc] initWithDictionary:quoteDict]];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showQuotesTable];
+            });
+        } else {
+            NSLog(@"Error loading quotes!");
+        }
+    }];
+}
+
 - (void)hideQuotesTable {
     // show spinner
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
-    [self.view setUserInteractionEnabled:NO];
+    [self.quotesTableView setUserInteractionEnabled:NO];
     
     self.quotesTableView.hidden = YES;
 }
@@ -204,7 +241,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     // hide spinner
     self.spinner.hidden = YES;
     [self.spinner stopAnimating];
-    [self.view setUserInteractionEnabled:YES];
+    [self.quotesTableView setUserInteractionEnabled:YES];
     
     self.quotesTableView.hidden = NO;
     [self.quotesTableView reloadData];

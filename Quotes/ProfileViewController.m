@@ -112,7 +112,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     CGFloat quoteHeight = [QuoteView heightOfText:quote.text withFont:[UIFont fontWithName:MAIN_FONT_NON_BOLD size:QUOTE_FONT_SIZE] width:quoteWidth];
     
     // calc heard by height
-    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH;
+    CGFloat heardByWidth =  quoteWidth - HEARD_BY_LABEL_WIDTH - TABLE_CELL_PADDING;
     CGFloat heardByHeight = [[quote heardByFullNameList] boundingRectWithSize:CGSizeMake(heardByWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont fontWithName:MAIN_FONT size:HEARD_BY_FONT_SIZE]} context:nil].size.height;
     
     return quoteHeight + heardByHeight + (IMAGE_WIDTH_RATIO * screenWidth) + (TABLE_CELL_PADDING * 7);
@@ -211,7 +211,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     // show spinner
     self.spinner.hidden = NO;
     [self.spinner startAnimating];
-    [self.view setUserInteractionEnabled:NO];
+    [self.quotesTableView setUserInteractionEnabled:NO];
     
     self.quotesTableView.hidden = YES;
 }
@@ -221,7 +221,7 @@ static CGFloat const HEARD_BY_FONT_SIZE = 18.0f;
     // hide spinner
     self.spinner.hidden = YES;
     [self.spinner stopAnimating];
-    [self.view setUserInteractionEnabled:YES];
+    [self.quotesTableView setUserInteractionEnabled:YES];
     
     self.quotesTableView.hidden = NO;
     [self.quotesTableView reloadData];

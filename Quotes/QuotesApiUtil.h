@@ -18,4 +18,6 @@
 
 + (void)getMyHeardQuotesWithCompletionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
 
++ (void)getMyQuotesWithQuery:(NSString *)query completionHandler:(void (^)(NSDictionary *jsonData, NSURLResponse *response, NSError *error))completionHandler;
+
 @end

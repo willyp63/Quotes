@@ -51,6 +51,7 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
                                       self.bounds.size.width - myHeightMinusPadding - CANCEL_BUTTON_WIDTH - (HORIZONTAL_PADDING * 4),
                                       myHeightMinusPadding);
     self.textField = [[UITextField alloc] initWithFrame:textFieldRect];
+    self.textField.delegate = self;
     
     CGRect clearTextButtonRect = CGRectMake(self.textField.frame.size.width + (HORIZONTAL_PADDING * 2) + CLEAR_TEXT_BUTTON_PADDING,
                                       VERTICAL_PADDING + CLEAR_TEXT_BUTTON_PADDING,
@@ -78,14 +79,37 @@ static CGFloat const CLEAR_TEXT_BUTTON_PADDING = 8.0f;
     [self addSubview:self.textField];
     [self addSubview:self.clearTextButton];
     [self addSubview:self.cancelButton];
+    
+    [self.textField becomeFirstResponder];
 }
 
 -(void)clearText:(UIButton *)sender {
+    self.textField.text = @"";
     
+    // notify delegate
+    [self.delegate searchView:self didChangeTextTo:@""];
 }
 
 -(void)cancel:(UIButton *)sender {
+    self.textField.text = @"";
+    
     [self.delegate searchView:self didCancelWithText:self.text];
+}
+
+#pragma mark UITextFieldDelegate
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    // get new new text after update
+    NSString *newText = [NSString stringWithString:self.textField.text];
+    newText = [newText stringByReplacingCharactersInRange:range withString:string];
+    
+    // notify delegate
+    [self.delegate searchView:self didChangeTextTo:newText];
+    
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    return YES;
 }
 
 @end
