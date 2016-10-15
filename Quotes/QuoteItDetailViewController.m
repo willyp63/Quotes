@@ -148,6 +148,15 @@
         return NO;
     }
     
+    // advance cursor to next date field if completed previous one
+    if (newText.length == textField.placeholder.length) {
+        if (textField == self.monthField) {
+            [self.dayField becomeFirstResponder];
+        } else if (textField == self.dayField) {
+            [self.yearField becomeFirstResponder];
+        }
+    }
+    
     // update text and check if form is complete
     textField.text = newText;
     [self checkIfFormIsComplete];

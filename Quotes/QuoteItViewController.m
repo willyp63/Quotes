@@ -20,6 +20,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 
 @property (weak, nonatomic) IBOutlet UITextView *textArea;
 @property (strong, nonatomic) AboveKeyBoardView *aboveKeyboardView;
+@property (nonatomic) CGRect aboveKeyBoardViewFrame;
 
 @end
 
@@ -43,8 +44,14 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     
     // listen for keyboard showing
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardWillChangeFrameNotification
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    // listen for keyboard hiding
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
 }
 
@@ -56,19 +63,6 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     
     // remove keyboard observers
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    
-    // remove above keyboard view
-    if (!animated) {
-        [self.aboveKeyboardView removeFromSuperview];
-    } else {
-        // animate removal
-        CGRect initRect = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height, [UIScreen mainScreen].bounds.size.width, ABOVE_KEYBOARD_VIEW_HEIGHT);
-        [UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
-            self.aboveKeyboardView.frame = initRect;
-        } completion:^(BOOL finsihed){
-            [self.aboveKeyboardView removeFromSuperview];
-        }];
-    }
 }
 -(void)clearQuoteText {
     self.textArea.text = PLACE_HOLDER_TEXT;
@@ -87,7 +81,7 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 }
 
 #pragma mark - UIKeyboardWillShowNotification
-- (void)keyboardWasShown:(NSNotification *)notification {
+- (void)keyboardWillShow:(NSNotification *)notification {
     // remove old above keyboard view
     if (self.aboveKeyboardView) {
         [self.aboveKeyboardView removeFromSuperview];
@@ -97,10 +91,13 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     
     // animation frames
     CGRect startAnimationFrame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height, keyboardFrame.size.width, ABOVE_KEYBOARD_VIEW_HEIGHT);
-    CGRect endAnimationFrame = CGRectMake(0,
-                                          [[UIScreen mainScreen] bounds].size.height - keyboardFrame.size.height - ABOVE_KEYBOARD_VIEW_HEIGHT,
-                                          keyboardFrame.size.width,
-                                          ABOVE_KEYBOARD_VIEW_HEIGHT);
+    
+    if (!self.aboveKeyBoardViewFrame.origin.y) {
+        self.aboveKeyBoardViewFrame = CGRectMake(0,
+                                                 [[UIScreen mainScreen] bounds].size.height - keyboardFrame.size.height - ABOVE_KEYBOARD_VIEW_HEIGHT,
+                                                 keyboardFrame.size.width,
+                                                 ABOVE_KEYBOARD_VIEW_HEIGHT);
+    }
     
     // init above keyboard view
     self.aboveKeyboardView = [[AboveKeyBoardView alloc] initWithFrame:startAnimationFrame buttonAction:@selector(showQuoteItDetail:) target:self];
@@ -119,8 +116,14 @@ static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
     // add view and animate in
     [self.view addSubview:self.aboveKeyboardView];
     [UIView animateWithDuration:KEYBOARD_ANIMATION_DURATION animations:^{
-        self.aboveKeyboardView.frame = endAnimationFrame;
+        self.aboveKeyboardView.frame = self.aboveKeyBoardViewFrame;
     }];
+}
+
+#pragma mark - UIKeyboardWillHideNotification
+- (void)keyboardWillHide:(NSNotification *)notification {
+    // remove above keyboard view
+    [self.aboveKeyboardView removeFromSuperview];
 }
 
 #pragma mark - UITextViewDelegate

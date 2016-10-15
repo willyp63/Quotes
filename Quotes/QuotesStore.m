@@ -30,7 +30,11 @@
 - (void)clearCachedQueries {
     // save entry in dictionary that holds all the users quotes
     NSArray<Quote *> *allMyQuotes = [self.myQuotes objectForKey:@""];
-    self.myQuotes = [NSMutableDictionary dictionaryWithObjectsAndKeys:allMyQuotes, @"", nil];
+    if (allMyQuotes) {
+        self.myQuotes = [NSMutableDictionary dictionaryWithObjectsAndKeys:allMyQuotes, @"", nil];
+    } else {
+        self.myQuotes = [NSMutableDictionary dictionary];
+    }
 }
 
 - (void)fetchMyQuotesWithForceRequest:(BOOL)forceRequest completionHandler:(void (^)(NSArray<Quote *> *quotes, NSError *error))completionHandler {
