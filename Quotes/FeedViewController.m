@@ -42,6 +42,18 @@ static CGFloat const SEARCH_VIEW_HEIGHT = 40.0f;
     // strech image in search button
     self.searchButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     self.searchButton.contentVerticalAlignment = UIControlContentVerticalAlignmentFill;
+    
+    // give quotes table a top border
+    UIView *topBorderView = [[UIView alloc] initWithFrame:CGRectMake(self.quotesTableView.frame.origin.x,
+                                                                     self.quotesTableView.frame.origin.y,
+                                                                     self.quotesTableView.frame.size.width,
+                                                                     0.5f)];
+    topBorderView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:topBorderView];
+    self.quotesTableView.frame = CGRectMake(self.quotesTableView.frame.origin.x,
+                                            self.quotesTableView.frame.origin.y + 0.5f,
+                                            self.quotesTableView.frame.size.width,
+                                            self.quotesTableView.frame.size.height - 0.5f);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

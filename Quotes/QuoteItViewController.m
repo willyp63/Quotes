@@ -12,7 +12,7 @@
 #import "QuoteItDetailViewController.h"
 #import "constants.h"
 
-static CGFloat const ABOVE_KEYBOARD_VIEW_HEIGHT = 60.0f;
+static CGFloat const ABOVE_KEYBOARD_VIEW_HEIGHT = 55.0f;
 static CGFloat const KEYBOARD_ANIMATION_DURATION = 0.9f;
 static NSString *const PLACE_HOLDER_TEXT = @"Say Something...";
 

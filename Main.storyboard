@@ -84,7 +84,7 @@
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10-Digits" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-tY-I2V" customClass="QTSTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8j-tY-I2V" customClass="QTSTextField">
                                 <frame key="frameInset" minX="174" minY="219" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -112,7 +112,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v43-fB-UrE" customClass="QTSButton">
-                                <frame key="frameInset" minX="125" minY="487" width="125" height="50"/>
+                                <frame key="frameInset" minX="125" minY="491" width="125" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                 <state key="normal" title="Register">
@@ -123,9 +123,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQ0-1K-Jl6" customClass="QTSButton">
-                                <frame key="frameInset" minX="30" minY="377" width="150" height="50"/>
+                                <frame key="frameInset" minX="26" minY="385" width="170" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <state key="normal" title="Choose Image">
                                     <color key="titleColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -133,15 +133,15 @@
                                     <action selector="askForPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="by9-dZ-Cuu"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKn-j9-hT1">
-                                <frame key="frameInset" minX="202" minY="338" width="128" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lvu-mJ-JXf">
-                                <frame key="frameInset" minX="271" minY="494" width="37" height="37"/>
+                                <frame key="frameInset" minX="271" minY="498" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKn-j9-hT1">
+                                <frame key="frameInset" minX="217" minY="346" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -171,7 +171,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quotes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29l-Ta-Ifg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QUOTES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29l-Ta-Ifg">
                                 <frame key="frameInset" minX="111" minY="20" width="153" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="32"/>
@@ -182,7 +182,7 @@
                                 <frame key="frameInset" minX="16" minY="20" width="87" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                                <state key="normal" title="cancel">
+                                <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The brown fox jumped over the river " textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcT-Rn-eD2" customClass="QuoteView">
-                                <frame key="frameInset" minX="24" minY="269" width="335" height="229"/>
+                                <frame key="frameInset" minX="24" minY="285" width="335" height="229"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
@@ -508,14 +508,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PHONE NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zm1-DY-Fr2">
-                                <frame key="frameInset" minX="16" minY="105" width="150" height="45"/>
+                                <frame key="frameInset" minX="16" minY="91" width="150" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10-Digits" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-kv-AvD" customClass="QTSTextField">
-                                <frame key="frameInset" minX="174" minY="107" width="185" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tJm-kv-AvD" customClass="QTSTextField">
+                                <frame key="frameInset" minX="174" minY="93" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -525,14 +525,14 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PASSWORD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPu-HK-UlJ">
-                                <frame key="frameInset" minX="16" minY="169" width="150" height="45"/>
+                                <frame key="frameInset" minX="16" minY="155" width="150" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uh3-2z-yHn" customClass="QTSTextField">
-                                <frame key="frameInset" minX="174" minY="171" width="185" height="30"/>
+                                <frame key="frameInset" minX="174" minY="157" width="185" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -542,7 +542,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yc-1o-yMb" customClass="QTSButton">
-                                <frame key="frameInset" minX="125" minY="241" width="125" height="50"/>
+                                <frame key="frameInset" minX="125" minY="227" width="125" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="24"/>
                                 <state key="normal" title="Login">
@@ -554,7 +554,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Hqz-Pw-rnO">
-                                <frame key="frameInset" minX="268" minY="248" width="37" height="37"/>
+                                <frame key="frameInset" minX="268" minY="234" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.93725490199999995" green="0.36078431370000003" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
@@ -620,7 +620,7 @@
         <image name="searchIcon" width="20" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ycm-YE-hZI"/>
-        <segue reference="qus-4f-Dwa"/>
+        <segue reference="Am7-8g-lNg"/>
+        <segue reference="VGs-WJ-ibU"/>
     </inferredMetricsTieBreakers>
 </document>

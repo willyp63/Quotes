@@ -11,10 +11,10 @@
 #import "constants.h"
 
 static NSString *const REUSE_CELL_ID = @"suggestion";
-static CGFloat const TABLE_CELL_HIEGHT = 45.0f;
-static int const MAX_NUM_CELLS = 3;
+static CGFloat const TABLE_CELL_HIEGHT = 60.0f;
+static int const MAX_NUM_CELLS = 4;
 static CGFloat const FIELD_HIEGHT = 45.0f;
-static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
+static CGFloat const DROP_DOWN_LEFT_OFFSET = 4.0f;
 
 
 @interface ContactListTextField ()
@@ -44,15 +44,12 @@ static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
 }
 
 -(void)customSetup {
-    // QSTTextField setup (problem with subclassing SQTTextField in storyboard)
     self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, FIELD_HIEGHT);
     self.borderStyle = UITextBorderStyleNone;
-    self.layer.cornerRadius = 0.0f;
-    self.layer.borderWidth = 2.0f;
-    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.backgroundColor = [UIColor whiteColor];
     self.font = [UIFont fontWithName:@"Helvetica" size:18];
     
-    // add left padding unless text is centerd
+    // add left padding unless text is centered
     if (self.textAlignment != NSTextAlignmentCenter) {
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, FIELD_HIEGHT)];
         self.leftView = paddingView;
@@ -65,7 +62,7 @@ static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
     
     // setup suggestions table right below text field
     CGFloat tableHieght = [self.suggestions count] * TABLE_CELL_HIEGHT;
-    CGRect suggestionsFrame = CGRectMake(DROP_DOWN_LEFT_OFFSET, self.frame.size.height, self.frame.size.width - DROP_DOWN_LEFT_OFFSET, tableHieght);
+    CGRect suggestionsFrame = CGRectMake(DROP_DOWN_LEFT_OFFSET * 2, self.frame.size.height - DROP_DOWN_LEFT_OFFSET, self.frame.size.width, tableHieght);
     self.suggestionsView = [[UITableView alloc] initWithFrame:suggestionsFrame style:UITableViewStylePlain];
     self.suggestionsView.delegate = self;
     self.suggestionsView.dataSource = self;
@@ -104,9 +101,9 @@ static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
     cell.textLabel.textColor = [UIColor grayColor];
     
     //style cell
-    cell.layer.borderWidth = 0.5f;
+    cell.layer.borderWidth = 1.0f;
     cell.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    cell.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    cell.backgroundColor = [UIColor whiteColor];
     
     return cell;
 }
@@ -130,7 +127,7 @@ static CGFloat const DROP_DOWN_LEFT_OFFSET = 10.0f;
 - (void)showSuggestions {
     // resize table
     CGFloat tableHieght = MIN([self.suggestions count], MAX_NUM_CELLS) * TABLE_CELL_HIEGHT;
-    CGRect suggestionsFrame = CGRectMake(DROP_DOWN_LEFT_OFFSET, self.frame.size.height, self.frame.size.width - DROP_DOWN_LEFT_OFFSET, tableHieght);
+    CGRect suggestionsFrame = CGRectMake(DROP_DOWN_LEFT_OFFSET * 2, self.frame.size.height - DROP_DOWN_LEFT_OFFSET, self.frame.size.width, tableHieght);
     self.suggestionsView.frame = suggestionsFrame;
     
     // show and reload data

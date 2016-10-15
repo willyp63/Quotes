@@ -11,7 +11,7 @@
 
 static CGFloat const CHAR_COUNT_WIDTH = 100.0f;
 static CGFloat const BUTTON_WIDTH = 150.0f;
-static NSString *const BUTTON_TITLE = @"Quote It";
+static NSString *const BUTTON_TITLE = @"QUOTE IT";
 
 @implementation AboveKeyBoardView
 
@@ -21,6 +21,7 @@ static NSString *const BUTTON_TITLE = @"Quote It";
         // char count
         self.charCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CHAR_COUNT_WIDTH, frame.size.height)];
         self.charCount.text = [NSString stringWithFormat:@"%d", CHARACTER_LIMIT];
+        self.charCount.font = [UIFont fontWithName:MAIN_FONT_NON_BOLD size:20.0f];
         self.charCount.textAlignment = NSTextAlignmentCenter;
         self.charCount.textColor = [UIColor colorWithRed:MAIN_COLOR_RED green:MAIN_COLOR_GREEN blue:MAIN_COLOR_BLUE alpha:1.0];
         [self addSubview:self.charCount];
@@ -30,7 +31,7 @@ static NSString *const BUTTON_TITLE = @"Quote It";
         [self.quoteItButton addTarget:target action:buttonAction forControlEvents:UIControlEventTouchUpInside];
         [self.quoteItButton setTitle:BUTTON_TITLE forState:UIControlStateNormal];
         [self.quoteItButton setTitleColor:[UIColor colorWithRed:MAIN_COLOR_RED green:MAIN_COLOR_GREEN blue:MAIN_COLOR_BLUE alpha:1.0] forState:UIControlStateNormal];
-        self.quoteItButton.titleLabel.font = [UIFont fontWithName:MAIN_FONT size:24.0f];
+        self.quoteItButton.titleLabel.font = [UIFont fontWithName:MAIN_FONT size:22.0f];
         self.quoteItButton.frame = CGRectMake(frame.size.width - BUTTON_WIDTH, 0, BUTTON_WIDTH, frame.size.height);
         [self addSubview:self.quoteItButton];
     }

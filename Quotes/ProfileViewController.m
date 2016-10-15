@@ -81,6 +81,18 @@
         self.profileImage.layer.borderWidth = 2.0f;
         self.profileImage.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     }
+    
+    // give quotes table a top border
+    UIView *topBorderView = [[UIView alloc] initWithFrame:CGRectMake(self.quotesTableView.frame.origin.x,
+                                                                        self.quotesTableView.frame.origin.y,
+                                                                        self.quotesTableView.frame.size.width,
+                                                                        0.5f)];
+    topBorderView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:topBorderView];
+    self.quotesTableView.frame = CGRectMake(self.quotesTableView.frame.origin.x,
+                                            self.quotesTableView.frame.origin.y + 0.5f,
+                                            self.quotesTableView.frame.size.width,
+                                            self.quotesTableView.frame.size.height - 0.5f);
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -41,6 +41,16 @@
     // set quote text
     self.quoteView.text = self.quoteText;
     
+    UIView *borderView = [[UIView alloc] initWithFrame:self.saidField.frame];
+    borderView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:borderView];
+    self.saidField.frame = CGRectInset(self.saidField.frame, 2.0f, 2.0f);
+    
+    borderView = [[UIView alloc] initWithFrame:self.heardField.frame];
+    borderView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:borderView];
+    self.heardField.frame = CGRectInset(self.heardField.frame, 2.0f, 2.0f);
+    
     // bring drop down text field views to front
     [self.view bringSubviewToFront:self.heardField];
     [self.view bringSubviewToFront:self.saidField];
