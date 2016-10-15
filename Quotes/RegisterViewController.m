@@ -6,6 +6,7 @@
 //  Copyright © 2016 Wil Pirino. All rights reserved.
 //
 
+#import <Photos/Photos.h>
 #import "RegisterViewController.h"
 #import "A0SimpleKeychain.h"
 #import "AuthApiUtil.h"
@@ -78,7 +79,26 @@
 }
 
 - (IBAction)askForPhoto:(id)sender {
-    // show image picker VC
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        switch (status) {
+            case PHAuthorizationStatusAuthorized:
+                [self showPhotoPicker];
+                break;
+            case PHAuthorizationStatusRestricted:
+                NSLog(@"Photo access restricted!");
+                break;
+            case PHAuthorizationStatusDenied:
+                NSLog(@"Photo access denied!");
+                break;
+            default:
+                break;
+        }
+    }];
+    
+}
+
+- (void)showPhotoPicker {
+    // show picker VC
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.allowsEditing = YES;
