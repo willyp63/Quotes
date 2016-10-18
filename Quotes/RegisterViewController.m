@@ -103,7 +103,10 @@
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.allowsEditing = YES;
     [picker setDelegate:self];
-    [self presentViewController:picker animated:YES completion:nil];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:picker animated:YES completion:nil];
+    });
 }
 
 #pragma mark - UIImagePickerControllerDelegate

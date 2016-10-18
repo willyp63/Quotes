@@ -54,7 +54,9 @@
     NSMutableArray *mapped = [NSMutableArray arrayWithCapacity:[contacts count]];
     for (CNContact *contact in contacts) {
         Contact *myContact = [[Contact alloc] initWithCNContact:contact];
-        [mapped addObject:myContact];
+        if (myContact.phoneNumber) {
+            [mapped addObject:myContact];
+        }
     }
     
     // add user contact

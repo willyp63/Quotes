@@ -23,7 +23,7 @@
         
         // get phone number (take first one)
         NSArray *numbers = [contact.phoneNumbers valueForKey:@"value"];
-        _phoneNumber = [numbers count] == 0 ? @"none" : [numbers[0] stringValue];
+        _phoneNumber = [numbers count] == 0 ? nil : [numbers[0] stringValue];
         
         // get image data (thumbnail)
         _imageData = contact.thumbnailImageData;
