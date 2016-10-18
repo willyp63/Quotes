@@ -111,8 +111,10 @@
                     [mtc setSelectedIndex:mtc.prevSelectedIndex];
                 });
             } else {
-                [self hideLoader];
-                NSLog(@"There was an error: %@", error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self hideLoader];
+                    [self notifyUserOfServerErrorWithMessage:[jsonData objectForKey:@"message" ]];
+                });
             }
         }];
     } else {
@@ -129,6 +131,18 @@
     // show alert for error message
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid Date!"
                                                                              message:@"Please enter a valid date."
+                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:nil];
+    [alertController addAction:actionOk];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)notifyUserOfServerErrorWithMessage:(NSString *)message {
+    // show alert for error message
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Server Error!"
+                                                                             message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *actionOk = [UIAlertAction actionWithTitle:@"Ok"
                                                        style:UIAlertActionStyleDefault

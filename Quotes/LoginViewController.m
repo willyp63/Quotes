@@ -37,29 +37,21 @@
     // make api request
     [AuthApiUtil loginWithBody:body completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
         if (!error) {
-            // check for token
+            // Success
+            NSLog(@"Login successful!");
+            
+            // save user info and token
             NSString *token = [jsonData objectForKey:@"token"];
-            if (token) {
-                // Success
-                NSLog(@"Login successful!");
-                
-                // save user info and token
-                [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
-                
-                // segue
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"login" sender:self];
-                });
-            } else {
-                // show error
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self failLoginWithError:[jsonData objectForKey:@"message"]];
-                });
-            }
+            [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
+            
+            // segue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"login" sender:self];
+            });
         } else {
             // show error
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self failLoginWithError:@"Error Connecting to login endpoint"];
+                [self failLoginWithError:[jsonData objectForKey:@"message"]];
             });
         }
     }];

@@ -47,9 +47,16 @@
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            completionHandler(jsonData, response, error);
+            
+            // check for error code
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            if (statusCode != 200) {
+                completionHandler(jsonData, response, [NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:nil]);
+            } else {
+                completionHandler(jsonData, response, error);
+            }
         } else {
-            completionHandler(nil, response, error);
+            completionHandler(@{}, response, error);
         }
     }];
     [postDataTask resume];
@@ -76,9 +83,16 @@
     NSURLSessionDataTask *getDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (!error) {
             NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            completionHandler(jsonData, response, error);
+            
+            // check for error code
+            NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+            if (statusCode != 200) {
+                completionHandler(jsonData, response, [NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:nil]);
+            } else {
+                completionHandler(jsonData, response, error);
+            }
         } else {
-            completionHandler(nil, response, error);
+            completionHandler(@{}, response, error);
         }
     }];
     [getDataTask resume];

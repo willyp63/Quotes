@@ -46,33 +46,25 @@
     // make api request
     [AuthApiUtil registerWithBody:body completionHandler:^(NSDictionary *jsonData, NSURLResponse *response, NSError *error) {
         if (!error) {
-            // check for token
+            // Success
+            NSLog(@"Registration successful!");
+            
+            // save user info and token
             NSString *token = [jsonData objectForKey:@"token"];
-            if (token) {
-                // Success
-                NSLog(@"Registration successful!");
-                
-                // save user info and token
-                [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
-                if (self.profileImage.image) {
-                    NSString *userPhoneNumber = [[jsonData objectForKey:@"user"] objectForKey:@"phoneNumber"];
-                    [self saveProfileImage:self.profileImage.image underPhoneNumber:userPhoneNumber];
-                }
-                
-                // segue
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self performSegueWithIdentifier:@"register" sender:self];
-                });
-            } else {
-                // show error
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self failRegisterWithError:[jsonData objectForKey:@"message"]];
-                });
+            [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
+            if (self.profileImage.image) {
+                NSString *userPhoneNumber = [[jsonData objectForKey:@"user"] objectForKey:@"phoneNumber"];
+                [self saveProfileImage:self.profileImage.image underPhoneNumber:userPhoneNumber];
             }
+            
+            // segue
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self performSegueWithIdentifier:@"register" sender:self];
+            });
         } else {
             // show error
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self failRegisterWithError:@"Error Connecting to register endpoint"];
+                [self failRegisterWithError:[jsonData objectForKey:@"message"]];
             });
         }
     }];
