@@ -25,6 +25,9 @@
     if (authorized) {
         // set Auth header
         NSString *token = [[A0SimpleKeychain keychain] stringForKey:JWT_KEY];
+        if (!token) {
+            token = [[NSUserDefaults standardUserDefaults] objectForKey:JWT_KEY];
+        }
         sessionConfiguration.HTTPAdditionalHeaders = @{@"Content-Type": @"application/json",
                                                        @"Accept": @"application/json",
                                                        @"Authorization": [NSString stringWithFormat:@"Token %@", token]};
@@ -69,6 +72,9 @@
     if (authorized) {
         // set Auth header
         NSString *token = [[A0SimpleKeychain keychain] stringForKey:JWT_KEY];
+        if (!token) {
+            token = [[NSUserDefaults standardUserDefaults] objectForKey:JWT_KEY];
+        }
         sessionConfiguration.HTTPAdditionalHeaders = @{@"Accept": @"application/json",
                                                        @"Authorization": [NSString stringWithFormat:@"Token %@", token]};
     } else {

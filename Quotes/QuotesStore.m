@@ -46,6 +46,7 @@
                 [self.myQuotes setObject:[self formatQuotesResponseWithJSONData:jsonData] forKey:@""];
                 completionHandler([self.myQuotes objectForKey:@""], nil);
             } else {
+                NSLog(@"%@", [jsonData objectForKey:@"message"]);
                 completionHandler(nil, error);
             }
         }];
@@ -65,6 +66,7 @@
                 [self.myQuotes setObject:[self formatQuotesResponseWithJSONData:jsonData] forKey:query];
                 completionHandler([self.myQuotes objectForKey:query], nil);
             } else {
+                NSLog(@"%@", [jsonData objectForKey:@"message"]);
                 completionHandler(nil, error);
             }
         }];
@@ -83,6 +85,7 @@
                 self.mySaidQuotes = [self formatQuotesResponseWithJSONData:jsonData];
                 completionHandler(self.mySaidQuotes, nil);
             } else {
+                NSLog(@"%@", [jsonData objectForKey:@"message"]);
                 completionHandler(nil, error);
             }
         }];
@@ -101,6 +104,7 @@
                 self.myHeardQuotes = [self formatQuotesResponseWithJSONData:jsonData];
                 completionHandler(self.myHeardQuotes, nil);
             } else {
+                NSLog(@"%@", [jsonData objectForKey:@"message"]);
                 completionHandler(nil, error);
             }
         }];

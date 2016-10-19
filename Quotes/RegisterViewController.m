@@ -127,6 +127,7 @@
 
 - (void)saveUser:(NSDictionary *)user andToken:(NSString *)token {
     [[A0SimpleKeychain keychain] setString:token forKey:JWT_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:JWT_KEY]; // this is unsafe
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"firstName"] forKey:FIRST_NAME_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"lastName"] forKey:LAST_NAME_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"phoneNumber"] forKey:PHONE_NUMBER_KEY];

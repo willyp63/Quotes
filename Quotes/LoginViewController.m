@@ -42,6 +42,7 @@
             
             // save user info and token
             NSString *token = [jsonData objectForKey:@"token"];
+            NSLog(@"Got token: %@", token);
             [self saveUser:[jsonData objectForKey:@"user"] andToken:token];
             
             // segue
@@ -70,6 +71,7 @@
 
 - (void)saveUser:(NSDictionary *)user andToken:(NSString *)token {
     [[A0SimpleKeychain keychain] setString:token forKey:JWT_KEY];
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:JWT_KEY]; // this is unsafe
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"firstName"] forKey:FIRST_NAME_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"lastName"] forKey:LAST_NAME_KEY];
     [[NSUserDefaults standardUserDefaults] setObject:[user objectForKey:@"phoneNumber"] forKey:PHONE_NUMBER_KEY];
